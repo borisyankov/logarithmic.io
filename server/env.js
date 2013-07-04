@@ -1,9 +1,17 @@
 module.exports = function(app, express) {
     app.configure(function() {
         app.use(express.logger());
-        app.use(express.static(__dirname + '/static'));
-    });
+        app.use('/app', express.static(__dirname + '/../client'));
+        app.use('/api', express.static(__dirname + '/../api'));
+        
+        app.use(express.static(__dirname + '/../public'));
 
+        app.use(express.errorHandler({
+            dumpExceptions: true,
+            showStack: true
+        }));
+    });
+/*
     app.configure('development', function() {
         app.use(express.errorHandler({
             dumpExceptions: true,
@@ -13,5 +21,5 @@ module.exports = function(app, express) {
 
     app.configure('production', function() {
         app.use(express.errorHandler());
-    });
+    });*/
 };
