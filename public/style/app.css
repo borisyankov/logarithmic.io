@@ -1,7 +1,7 @@
 @font-face {
   font-family: Aller;
-  src: local('Aller'), url('fonts/aller.woff');
-  src: local('Aller'), url('fonts/aller.ttf');
+  src: local('Aller'), url('../fonts/aller.woff');
+  src: local('Aller'), url('../fonts/aller.ttf');
 }
 body,
 input {
@@ -12,12 +12,13 @@ h2 {
   color: #2c3e50;
   font-weight: 300;
   font-size: 2em;
+  margin: 0;
 }
 /* Form ************************************************/
 .signup-box,
 .login-box {
   background-color: #c8c8cc;
-  width: 400px;
+  width: 100%;
   padding: 25px;
 }
 label {
@@ -33,6 +34,7 @@ fieldset {
   border: none;
 }
 input {
+  box-sizing: border-box;
   width: 100%;
 }
 input {
