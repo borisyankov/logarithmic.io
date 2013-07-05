@@ -1,9 +1,9 @@
 module.exports = function(app, express) {
     app.configure(function() {
         app.use(express.logger());
-        app.use('/app', express.static(__dirname + '/../client'));
+
         app.use('/api', express.static(__dirname + '/../api'));
-        
+
         app.use(express.static(__dirname + '/../public'));
 
         app.use(express.errorHandler({

@@ -1,0 +1,67 @@
+@accent: #2c3e50;
+@dark-bg: #2c3e50;
+@light-bg: #c8c8cc;
+
+@font-face {
+    font-family: Aller;
+    src: local('Aller'), url('fonts/aller.woff');
+    src: local('Aller'), url('fonts/aller.ttf');
+}
+
+
+body, input {
+    font-family: Aller, sans-serif;
+    font-size: 20px;
+}
+
+h2 {
+    color: @accent;
+    font-weight: 300;
+    font-size: 2em;
+}
+
+/* Form ************************************************/
+
+.signup-box, .login-box {
+    background-color: @light-bg;
+    width: 400px;
+    padding: 25px;
+}
+
+label {
+    display: block;
+    color: @dark-bg;
+}
+
+fieldset {
+    padding: 0;
+    margin: 0;
+}
+
+input, fieldset {
+    border: none;
+}
+
+input {
+    width: 100%;
+}
+
+input {
+    border-radius: 3px;
+    padding: 5px;
+}
+
+button, input[type=submit] {
+    color: white;
+    background-color: @accent;
+    border-radius: 20px;
+    padding: 5px 20px;
+}
+
+/* Stats **********************************************/
+
+.numeric {
+    font-family: 'Roboto', sans-serif;
+    /*font-family: 'Open Sans Condensed', sans-serif;*/
+    font-weight: 400;
+}
