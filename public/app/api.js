@@ -1,4 +1,4 @@
-angular.module('Api', []).factory('login', function($http) {
+angular.module('logarithmic', []).factory('login', function($http) {
     var login;
 
     console.log($http);
