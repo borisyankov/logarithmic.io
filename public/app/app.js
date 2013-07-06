@@ -1,4 +1,4 @@
-angular.module('logarithmic', [])
+angular.module('logarithmic')
     .controller('LoginController', function($scope) {
 
         $scope.email = 'some@email.com';
@@ -9,11 +9,15 @@ angular.module('logarithmic', [])
         }
 
         $scope.login = function() {
-            console.log($scope.loginForm);
+            console.log($scope.form);
         }
     })
     .controller('SignupController', function($scope) {
+
+        $scope.subscribe = true;
+
         $scope.signup = function() {
-            console.log($scope.signupForm);
+            $scope.validation = true;
+            console.log($scope.form);
         }
     });
