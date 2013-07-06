@@ -1,40 +1,80 @@
-@accent: #2c3e50;
-@dark-bg: #2c3e50;
-@light-bg: #c8c8cc;
+/* Reusable ************************************************/
+
+@accent: #02daaf;
+@bg-dark: #2c3e50;
+@text-normal: #555;
+@text-strong: black;
+@bg-light: #f7f7f7;
+
+#accented-element {
+    color: white;
+    background: @accent;
+}
+
+/* Globals ************************************************/
 
 @font-face {
     font-family: Aller;
-    src: local('Aller'), url('../fonts/aller.woff');
-    src: local('Aller'), url('../fonts/aller.ttf');
+    src: url('../fonts/aller.woff'), url('../fonts/aller.ttf');
 }
 
-body, input {
+@font-face {
+    font-family: Museo;
+    src: url('../fonts/museo.woff'), url('../fonts/museo.ttf');
+}
+
+@font-face {
+    font-family: Icons;
+    src: url('../fonts/icons.woff'), url('../fonts/icons.ttf');
+}
+
+p, input, label, a {
     font-family: Aller, sans-serif;
     font-size: 20px;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: Museo, serif;
+    font-size: 36px;
+}
+
+body, label {
+    color: @text-normal;
+}
+
 h2 {
     color: @accent;
-    font-weight: 300;
-    font-size: 2em;
+    font-weight: 100;
     margin: 0;
+}
+
+a {
+    color: @accent;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+::selection {
+    #accented-element;
+}
+
+::-moz-selection {
+    #accented-element;
 }
 
 /* Form ************************************************/
 
 .signup-box, .login-box {
-    background-color: @light-bg;
+    background-color: @bg-light;
     width: 100%;
     padding: 25px;
 }
 
-label {
-    display: block;
-    color: @dark-bg;
-}
-
 fieldset {
-    padding: 0;
+    padding: 0 0 10px 0;
     margin: 0;
 }
 
@@ -42,21 +82,67 @@ input, fieldset {
     border: none;
 }
 
-input {
+input[type=text], input[type=email], input[type=password] {
     box-sizing: border-box;
+    color: @text-strong;
+    padding: 5px;
+    border-bottom: 2px solid #ddd;
     width: 100%;
 }
 
-input {
-    border-radius: 3px;
-    padding: 5px;
+label {
+    display: block;
+    width: 100%;
+}
+
+.half input[type=text] {
+    width: 49%;
+}
+
+input:focus {
+    outline: none;
+    border-bottom: 2px solid @accent;
 }
 
 button, input[type=submit] {
-    color: white;
-    background-color: @accent;
+    #accented-element;
     border-radius: 20px;
     padding: 5px 20px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="radio"] + label:before,
+input[type="checkbox"] + label:before {
+    font-family: Icons;
+    padding-right: 5px;
+    font-size: 20px;
+}
+
+input[type="radio"] + label:before {
+    content: "\e002"; /* circle-blank */
+}
+
+input[type="radio"]:checked + label:before {
+    content: "\e003"; /* circle */
+}
+
+input[type="checkbox"] + label:before {
+    content: "\e000"; /* check-empty */
+}
+
+input[type="checkbox"]:checked + label:before {
+    content: "\e001"; /* check */
+}
+
+.info:before {
+    font-family: Icons;
+    content: "\e002";
+    text-align: right;
+    padding-right: 5px;
 }
 
 /* Stats **********************************************/
