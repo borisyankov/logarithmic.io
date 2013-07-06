@@ -1,10 +1,10 @@
 /* Reusable ************************************************/
 
-@accent: #02daaf;
+@accent: #00cc9f;
 @bg-dark: #2c3e50;
 @text-normal: #555;
 @text-strong: black;
-@bg-light: #f7f7f7;
+@bg-light: #f5f5f5;
 
 #accented-element {
     color: white;
@@ -24,6 +24,12 @@
 }
 
 @font-face {
+    font-family: ProximaNova;
+    src: url('../fonts/proxima-nova.woff'), url('../fonts/proxima-nova.ttf');
+}
+
+
+@font-face {
     font-family: Icons;
     src: url('../fonts/icons.woff'), url('../fonts/icons.ttf');
 }
@@ -34,7 +40,7 @@ p, input, label, a {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: Museo, serif;
+    font-family: ProximaNova, serif;
     font-size: 36px;
 }
 
@@ -71,7 +77,10 @@ a:hover {
     background-color: @bg-light;
     width: 100%;
     padding: 25px;
+    border-top: 1px solid @accent;
+    border-bottom: 1px solid @accent;
 }
+
 
 fieldset {
     padding: 0 0 10px 0;
@@ -107,7 +116,16 @@ input:focus {
 button, input[type=submit] {
     #accented-element;
     border-radius: 20px;
-    padding: 5px 20px;
+    padding: 5px 25px;
+    border: 3px solid @bg-light;
+}
+
+button:disabled, input[type=submit]:disabled {
+    background-color: #777;
+}
+
+button:hover, input[type=submit]:hover {
+    border: 3px solid #b8e9de;
 }
 
 input[type="radio"],

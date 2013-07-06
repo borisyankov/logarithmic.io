@@ -44,17 +44,21 @@
             <h2>Log in</h2>
 
             <form class="login-form" name="loginForm" method="POST"
+                  novalidate
                   ng-submit="login()">
                 <fieldset>
                     <label for="email">Email</label>
                     <input id="email" type="email" name="email"
-                           autofocus required
+                           autofocus
+                           ng-required
                            ng-bind="email">
+
+                    <div class="error" ng-show="loginForm.email.$invalid">Not an email</div>
                 </fieldset>
                 <fieldset>
                     <label for="password">Password</label>
                     <input id="password" type="password"
-                           required
+                           ng-required
                            ng-bind="password">
                 </fieldset>
                 <fieldset>
@@ -63,7 +67,7 @@
                            ng-bind="stayLoggedIn">
                     <label for="remember">Stay logged in</label>
                 </fieldset>
-                <input type="submit" value="Log in">
+                <input type="submit" value="Log in" ng-enabled="loginForm.$valid">
             </form>
             <a href>Forgot password?</a>
         </div>
@@ -72,27 +76,48 @@
             <h2>Sign up</h2>
 
             <form class="signup-form" name="signupForm" method="POST"
+                  novalidate
                   ng-submit="signup()">
                 <fieldset class="half">
                     <label for="first-name">Name</label>
-                    <input id="first-name" type="text" autofocus placeholder="First" ng-bind="firstName">
-                    <input id="last-name" type="text" placeholder="Last" ng-bind="lastName">
+                    <input id="first-name" type="text" autofocus placeholder="First"
+                           ng-bind="firstName">
+                    <input id="last-name" type="text" placeholder="Last"
+                           ng-bind="lastName">
                 </fieldset>
                 <fieldset>
                     <label for="signup-email">Email</label>
-                    <input id="signup-email" type="email" name="email" required ng-bind="email">
+                    <input id="signup-email" type="email" name="email"
+                           ng-required
+                           ng-bind="email">
                 </fieldset>
                 <fieldset>
                     <label for="signup-password">Create a password</label>
                     <input id="signup-password" type="password"
-                           required
-                           ng-minlength="5" ng-bind="password">
+                           ng-required
+                           ng-minlength="5"
+                           ng-bind="password">
+
+                    <div class="error"
+                         ng-show="form.uPassword.$dirty && form.uPassword.$error.minlength">
+                        Too short
+                    </div>
                 </fieldset>
                 <fieldset>
                     <label for="comfirm-password">Confirm your password</label>
                     <input id="comfirm-password" type="password"
-                           required
+                           ng-required
                            ng-bind="confirmPassword">
+
+                    <div class="error"
+                         ng-show="form.ucPassword.$dirty && form.ucPassword.$error.required">
+                        Retype password.
+                    </div>
+
+                    <div class="error"
+                         ng-show="(form.uPassword.$dirty && form.ucPassword.$dirty) && (user.password != user.confirmpassword)">
+                        Password mismatched
+                    </div>
                 </fieldset>
                 <fieldset>
                     <input id="subscribe" type="checkbox"
@@ -100,21 +125,8 @@
                            ng-bind="subscribe">
                     <label for="subscribe">Subscribe to Getting Started Emails</label>
                 </fieldset>
-                <input type="submit" value="Sign up">
+                <input type="submit" value="Sign up" ng-enabled="signupForm.$valid">
             </form>
-            <input type="password" ng-model="user.password" name="uPassword" required placeholder='Password'
-                   ng-minlength="3" ng-maxlength="15" title="3 to 15 characters"/>
-            <span class="error" ng-show="form.uPassword.$dirty && form.uPassword.$error.minlength">Too short</span>
-            <span ng-show="form.uPassword.$dirty && form.uPassword.$error.required">Password required.</span><br/>
-
-            <input type="password" ng-model="user.confirmpassword" name="ucPassword" required
-                   placeholder='Confirm Password' ng-minlength="3" ng-maxlength="15" title="3 to 15 characters"/>
-            <span class="error" ng-show="form.ucPassword.$dirty && form.ucPassword.$error.minlength">Too short</span>
-            <span ng-show="form.ucPassword.$dirty && form.ucPassword.$error.required">Retype password.</span>
-
-            <div ng-show="(form.uPassword.$dirty && form.ucPassword.$dirty) && (user.password != user.confirmpassword)">
-                <span>Password mismatched</span>
-            </div>
         </div>
     </section>
 </article>
