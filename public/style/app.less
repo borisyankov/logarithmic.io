@@ -1,6 +1,6 @@
 /* Reusable ************************************************/
 
-@accent: #00cc9f;
+@accent: #52cccc;
 @bg-dark: #2c3e50;
 @text-normal: #555;
 @text-strong: black;
@@ -44,7 +44,6 @@ p, input, label, a, div {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: ProximaNova, serif;
-    font-size: 36px;
 }
 
 body, label {
@@ -55,6 +54,8 @@ h2 {
     color: @accent;
     font-weight: 100;
     margin: 0;
+    font-size: 36px;
+    line-height: 36px;
 }
 
 a {
@@ -76,14 +77,23 @@ a:hover {
 
 /* Form ************************************************/
 
-.signup-box, .login-box {
+.form-box {
     background-color: @bg-light;
     width: 100%;
-    padding: 25px;
+
     border-top: 1px solid @accent;
     border-bottom: 1px solid @accent;
 }
 
+.form-box h2 {
+    font-face: Museo;
+    #accented-element;
+    padding: 10px 25px;
+}
+
+.form-box form {
+    margin: 10px 25px;
+}
 
 fieldset {
     padding: 0 0 10px 0;

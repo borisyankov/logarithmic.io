@@ -1,7 +1,7 @@
 /* Reusable ************************************************/
 #accented-element {
   color: white;
-  background: #00cc9f;
+  background: #52cccc;
 }
 /* Globals ************************************************/
 @font-face {
@@ -38,19 +38,20 @@ h4,
 h5,
 h6 {
   font-family: ProximaNova, serif;
-  font-size: 36px;
 }
 body,
 label {
   color: #555555;
 }
 h2 {
-  color: #00cc9f;
+  color: #52cccc;
   font-weight: 100;
   margin: 0;
+  font-size: 36px;
+  line-height: 36px;
 }
 a {
-  color: #00cc9f;
+  color: #52cccc;
   text-decoration: none;
 }
 a:hover {
@@ -58,20 +59,27 @@ a:hover {
 }
 ::selection {
   color: white;
-  background: #00cc9f;
+  background: #52cccc;
 }
 ::-moz-selection {
   color: white;
-  background: #00cc9f;
+  background: #52cccc;
 }
 /* Form ************************************************/
-.signup-box,
-.login-box {
+.form-box {
   background-color: #f5f5f5;
   width: 100%;
-  padding: 25px;
-  border-top: 1px solid #00cc9f;
-  border-bottom: 1px solid #00cc9f;
+  border-top: 1px solid #52cccc;
+  border-bottom: 1px solid #52cccc;
+}
+.form-box h2 {
+  font-face: Museo;
+  color: white;
+  background: #52cccc;
+  padding: 10px 25px;
+}
+.form-box form {
+  margin: 10px 25px;
 }
 fieldset {
   padding: 0 0 10px 0;
@@ -99,12 +107,12 @@ label {
 }
 input:focus {
   outline: none;
-  border-bottom: 2px solid #00cc9f;
+  border-bottom: 2px solid #52cccc;
 }
 button,
 input[type=submit] {
   color: white;
-  background: #00cc9f;
+  background: #52cccc;
   border-radius: 20px;
   padding: 5px 25px;
   border: 3px solid #f5f5f5;

@@ -40,7 +40,7 @@
         </p>
     </section>
     <section class="wrapper">
-        <div class="login-box" ng-controller="LoginController">
+        <div class="form-box" ng-controller="LoginController">
             <h2>Log in</h2>
 
             <form class="login-form" name="form" method="POST"
@@ -89,7 +89,7 @@
         </p>
     </section>
     <section class="wrapper">
-        <div class="signup-box" ng-controller="SignupController">
+        <div class="form-box" ng-controller="SignupController">
             <h2>Sign up</h2>
 
             <form class="signup-form" name="form" method="POST"
@@ -133,6 +133,7 @@
                     <label for="comfirm-password">Confirm your password</label>
                     <input id="comfirm-password" type="password" name="confirmPassword"
                            ng-required="true"
+                           valid-if-equals="password"
                            ng-model="confirmPassword">
 
                     <error if="validation && password != confirmPassword">
