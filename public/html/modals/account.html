@@ -1,0 +1,37 @@
+<div class="form-box" ng-controller="AccountCtrl">
+    <h2>Account</h2>
+
+    <form class="account-form" name="form" method="POST"
+          novalidate
+          ng-submit="save()">
+        <fieldset>
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email"
+                   autofocus
+                   ng-required="true"
+                   ng-model="model.email">
+            <error if="validation && form.email.$invalid">
+                Enter your email address
+            </error>
+        </fieldset>
+        <fieldset>
+            <label for="password">Password</label>
+            <input id="password" type="password" name="password"
+                   ng-required="true"
+                   ng-model="model.password">
+
+            <error if="validation && form.password.$invalid">
+                The username or password you entered is incorrect
+            </error>
+        </fieldset>
+        <fieldset>
+            <input id="remember" type="checkbox"
+                   checked
+                   ng-model="model.stayLoggedIn">
+            <label for="remember">Stay logged in</label>
+        </fieldset>
+        <input type="submit" value="Update" ng-enabled="form.$valid">
+        <button>Cancel</button>
+    </form>
+    <a href>Forgot password?</a>
+</div>
