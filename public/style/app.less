@@ -33,7 +33,8 @@
     src: url('../fonts/icons.woff'), url('../fonts/icons.ttf');
 }
 
-* {
+*, *:after, *:before {
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -75,6 +76,19 @@ a:hover {
     #accented-element;
 }
 
+.overlay {
+    opacity: 1;
+    visibility: visible;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 1000;
+    transition: all 0.3s;
+    background: rgba(0, 0, 0, 0.5);
+}
+
 /* Form ************************************************/
 
 .form-box {
@@ -83,6 +97,13 @@ a:hover {
 
     border-top: 1px solid @accent;
     border-bottom: 1px solid @accent;
+
+    position: fixed;
+    width: 500px;
+    top: 50%;
+    left: 50%;
+    height: auto;
+    z-index: 1001;
 }
 
 .form-box h2 {
