@@ -1,6 +1,4 @@
-<div class="form-box" ng-controller="SignupCtrl">
-    <h2>Sign up</h2>
-
+<modal title="Sign up" ng-controller="SignupCtrl">
     <form class="signup-form" name="form" method="POST"
           novalidate
           ng-submit="signup()">
@@ -54,6 +52,12 @@
                    ng-model="subscribe">
             <label for="subscribe">Subscribe to Getting Started Emails</label>
         </fieldset>
-        <input type="submit" value="Sign up" ng-enabled="form.$valid">
+        <fieldset>
+            <input type="submit" value="Sign up" ng-enabled="form.$valid">
+            <button ng-click="cancel()">Cancel</button>
+        </fieldset>
+        <fieldset>
+            Already have an account? <a href>Log in</a>
+        </fieldset>
     </form>
-</div>
+</modal>

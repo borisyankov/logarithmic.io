@@ -1,0 +1,40 @@
+<modal title="Change Password" ng-controller="ChangePasswordCtrl">
+    <form class="account-form" name="form" method="POST"
+          novalidate
+          ng-submit="save()">
+        <fieldset>
+            <label for="oldPassword">Old Password</label>
+            <input id="oldPassword" type="password" name="oldPassword"
+                   ng-required="true"
+                   ng-model="model.oldPassword">
+
+            <error if="validation && form.oldPassword.$invalid">
+                Enter your old password
+            </error>
+        </fieldset>
+        <fieldset>
+            <label for="newPassword">New password</label>
+            <input id="newPassword" type="password" name="newPassword"
+                   ng-required="true"
+                   ng-minlength="5"
+                   ng-model="model.newPassword">
+
+            <error if="validation && form.newPassword.$invalid">
+                Enter a password, 5 letters or more
+            </error>
+        </fieldset>
+        <fieldset>
+            <label for="comfirm-password">Confirm your password</label>
+            <input id="comfirm-password" type="password" name="confirmPassword"
+                   ng-required="true"
+                   valid-if-equals="password"
+                   ng-model="model.confirmPassword">
+
+            <error if="validation && password != confirmPassword">
+                These passwords don't match
+            </error>
+        </fieldset>
+        <input type="submit" value="Save Changes" ng-enabled="form.$valid">
+        <button ng-click="cancel()">Cancel</button>
+    </form>
+</modal>

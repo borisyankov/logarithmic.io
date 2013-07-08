@@ -11,6 +11,11 @@
     background: @accent;
 }
 
+#normal-element {
+    color: @text-normal;
+    background: #ddd;
+}
+
 /* Globals ************************************************/
 
 @font-face {
@@ -61,11 +66,6 @@ h2 {
 
 a {
     color: @accent;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
 }
 
 ::selection {
@@ -89,9 +89,9 @@ a:hover {
     background: rgba(0, 0, 0, 0.5);
 }
 
-/* Form ************************************************/
+/* Modal ************************************************/
 
-.form-box {
+.modal {
     background-color: @bg-light;
     width: 100%;
 
@@ -106,15 +106,17 @@ a:hover {
     z-index: 1001;
 }
 
-.form-box h2 {
+.modal-title {
     font-face: Museo;
     #accented-element;
     padding: 10px 25px;
 }
 
-.form-box form {
+.modal-content {
     margin: 10px 25px;
 }
+
+/* Form ************************************************/
 
 fieldset {
     padding: 0 0 10px 0;
@@ -142,15 +144,27 @@ label {
     width: 49%;
 }
 
-input:focus {
+input:focus, button:focus {
     outline: none;
+}
+
+input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
     border-bottom: 2px solid @accent;
 }
 
 button, input[type=submit] {
-    #accented-element;
     border-radius: 20px;
     padding: 5px 25px;
+
+}
+
+button.accent, input[type=submit] {
+    #accented-element;
+    border: 3px solid @bg-light;
+}
+
+button {
+    #normal-element;
     border: 3px solid @bg-light;
 }
 

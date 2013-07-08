@@ -1,6 +1,4 @@
-<div class="form-box" ng-controller="LoginCtrl">
-    <h2>Log in</h2>
-
+<modal title="Log in" ng-controller="LoginCtrl">
     <form class="login-form" name="form" method="POST"
           novalidate
           ng-submit="login()">
@@ -30,7 +28,15 @@
                    ng-model="model.stayLoggedIn">
             <label for="remember">Stay logged in</label>
         </fieldset>
-        <input type="submit" value="Log in" ng-enabled="form.$valid">
+        <fieldset>
+            <input type="submit" value="Log in" ng-enabled="form.$valid">
+            <button ng-click="cancel()">Cancel</button>
+        </fieldset>
+        <fieldset>
+            <a href>Forgot your password?</a>
+        </fieldset>
+        <fieldset>
+            New here? <a href>Create an Account</a>
+        </fieldset>
     </form>
-    <a href>Forgot password?</a>
-</div>
+</modal>

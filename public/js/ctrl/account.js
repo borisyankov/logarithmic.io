@@ -11,4 +11,8 @@ angular.module('logarithmic').controller('AccountCtrl', function($scope) {
     $scope.save = function() {
         $scope.validation = true;
     }
+
+    $scope.cancel = function() {
+        alert('canceled');
+    }
 });
