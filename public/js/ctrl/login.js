@@ -1,8 +1,8 @@
 angular.module('logarithmic').controller('LoginCtrl', function($scope) {
 
     $scope.model = {
-        email: 'aa123',
-        password: '',
+        email: '1',
+        password: '1',
         stayLoggedIn: false,
         roflcopter: 'zuup'
     };

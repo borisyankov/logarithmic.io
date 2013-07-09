@@ -1,16 +1,17 @@
-angular.module('logarithmic').controller('SignupCtrl', function($scope) {
+angular.module('logarithmic').controller('SignupCtrl', function($scope, $state) {
 
     $scope.model = {
-        firstName: 'first',
+        firstName: '',
         lastName: '',
         email: '',
-        password: '',
-        confirmPassword: '',
+        password: '12345',
+        confirmPassword: '3',
         subscribe: true
     };
 
     $scope.show = function() {
         $scope.form.$setPristine();
+        $scope.visible = true;
     };
 
     $scope.ok = function() {
@@ -23,5 +24,6 @@ angular.module('logarithmic').controller('SignupCtrl', function($scope) {
 
     $scope.cancel = function(event) {
         event.preventDefault();
+        $state.visible = false;
     }
 });

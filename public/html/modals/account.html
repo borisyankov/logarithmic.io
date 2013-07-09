@@ -1,42 +1,40 @@
-<modal title="Account" ng-controller="AccountCtrl">
-    <form class="account-form" name="form" method="POST"
-          novalidate
-          ng-submit="ok()">
-        <fieldset class="half">
-            <label for="first-name">Name</label>
-            <input id="first-name" type="text" name="model.firstName"
-                   autofocus placeholder="First"
-                   ng-required="true"
-                   ng-model="firstName">
-            <input id="last-name" type="text" name="lastName"
-                   placeholder="Last"
-                   ng-required="true"
-                   ng-model="model.lastName">
-            <error if="validation && (form.firstName.$invalid || form.lastName.$invalid)">
-                You can't leave this empty
-            </error>
-        </fieldset>
-        <fieldset>
-            <label for="email">Email</label>
-            <input id="email" type="email" name="email"
-                   autofocus
-                   ng-required="true"
-                   ng-model="model.email">
-            <error if="validation && form.email.$invalid">
-                Enter your email address
-            </error>
-        </fieldset>
-        <fieldset>
-            <label for="password">Password</label>
-            <input id="password" type="password" name="password"
-                   ng-required="true"
-                   ng-model="model.password">
+<form name="form" method="POST"
+      novalidate
+      ng-submit="ok()">
+    <fieldset class="half">
+        <label for="first-name">Name</label>
+        <input id="first-name" type="text" name="firstName"
+               autofocus placeholder="First"
+               ng-required="true"
+               ng-model="firstName">
+        <input id="last-name" type="text" name="lastName"
+               placeholder="Last"
+               ng-required="true"
+               ng-model="model.lastName">
+        <error if="validation && (form.firstName.$invalid || form.lastName.$invalid)">
+            You can't leave this empty
+        </error>
+    </fieldset>
+    <fieldset>
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email"
+               autofocus
+               ng-required="true"
+               ng-model="model.email">
+        <error if="validation && form.email.$invalid">
+            Enter your email address
+        </error>
+    </fieldset>
+    <fieldset>
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password"
+               ng-required="true"
+               ng-model="model.password">
 
-            <error if="validation && form.password.$invalid">
-                The username or password you entered is incorrect
-            </error>
-        </fieldset>
-        <input type="submit" value="Save Changes" ng-enabled="form.$valid">
-        <button ng-click="cancel($event)">Cancel</button>
-    </form>
-</modal>
+        <error if="validation && form.password.$invalid">
+            The username or password you entered is incorrect
+        </error>
+    </fieldset>
+    <input type="submit" value="Save Changes" ng-enabled="form.$valid">
+    <button ng-click="cancel($event)">Cancel</button>
+</form>

@@ -1,7 +1,8 @@
 angular.module('logarithmic').controller('ProjectCtrl', function($scope) {
 
     $scope.model = {
-        name: ''
+        name: '1',
+        password: '2'
     };
 
     $scope.show = function() {

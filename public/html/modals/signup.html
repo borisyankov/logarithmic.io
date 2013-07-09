@@ -1,10 +1,11 @@
-<form class="signup-form" name="form" method="POST"
+<form name="form" method="POST"
       novalidate
       ng-submit="ok()">
     <fieldset class="half">
         <label for="first-name">Name</label>
         <input id="first-name" type="text" name="firstName"
-               autofocus placeholder="First"
+               autofocus
+               placeholder="First"
                ng-required="true"
                ng-model="model.firstName">
         <input id="last-name" type="text" name="lastName"
@@ -16,8 +17,8 @@
         </error>
     </fieldset>
     <fieldset>
-        <label for="signup-email">Email</label>
-        <input id="signup-email" type="email" name="email"
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email"
                ng-required="true"
                ng-model="model.email">
         <error if="validation && form.email.$invalid">
@@ -25,8 +26,8 @@
         </error>
     </fieldset>
     <fieldset>
-        <label for="signup-password">Create a password</label>
-        <input id="signup-password" type="password" name="password"
+        <label for="password">Create a password</label>
+        <input id="password" type="password" name="password"
                ng-required="true"
                ng-minlength="5"
                ng-model="model.password">
@@ -39,7 +40,7 @@
         <label for="comfirm-password">Confirm your password</label>
         <input id="comfirm-password" type="password" name="confirmPassword"
                ng-required="true"
-               valid-if-equals="password"
+               valid-if-equals="model.password"
                ng-model="model.confirmPassword">
 
         <error if="validation && form.confirmPassword.$invalid">
