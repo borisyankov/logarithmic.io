@@ -1,13 +1,14 @@
 angular.module('logarithmic', ['ui.state']).config(function($stateProvider, $routeProvider) {
 
     var modals = ['account', 'changepwd', 'login', 'project', 'signup'];
+    var pages = ['main', 'landing', 'dashboard'];
 
     $stateProvider
         .state('index', {
-            url: "", // root route
+            url: '', // root route
             views: {
-                "main": {
-                    templateUrl: "index.html"
+                "page": {
+                    templateUrl: "/html/pages/main.html"
                 },
                 "modal": {
                     templateUrl: ""
@@ -18,9 +19,9 @@ angular.module('logarithmic', ['ui.state']).config(function($stateProvider, $rou
     modals.forEach(function(modal) {
         $stateProvider
             .state(modal, {
-                url: "/" + modal,
+                url: '/' + modal,
                 views: {
-                    "main": {
+                    "page": {
                         templateUrl: "index.html"
                     },
                     "modal": {
@@ -30,4 +31,23 @@ angular.module('logarithmic', ['ui.state']).config(function($stateProvider, $rou
                 }
             });
     });
+
+    pages.forEach(function(page) {
+        $stateProvider
+            .state(page, {
+                url: "/" + page,
+                views: {
+                    "page": {
+                        templateUrl: '/html/pages/' + page + '.html',
+                        controller: page[0].toUpperCase() + page.slice(1) + 'Ctrl'
+                    },
+                    "modal": {
+                        templateUrl: ''
+                    }
+                }
+            });
+    });
 });
+
+function MainCtrl() {}
+function LandingCtrl() {}
