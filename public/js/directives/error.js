@@ -3,7 +3,7 @@ angular.module('logarithmic').directive('error', function() {
         restrict: 'E',
         replace: true,
         transclude: true,
-        scope: { yo: '@', if: '&' },
+        scope: { if: '&' },
         template: '<div class="error" ng-show="if()" ng-transclude></div>'
     };
 });

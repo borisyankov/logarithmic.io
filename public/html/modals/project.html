@@ -1,35 +1,26 @@
-<modal title="New Project" ng-controller="ProjectCtrl">
-    <form class="login-form" name="form" method="POST"
-          novalidate
-          ng-submit="login()">
-        <fieldset>
-            <label for="name">Name</label>
-            <input id="name" type="text" name="name"
-                   autofocus
-                   ng-required="true"
-                   ng-model="model.name">
-            <error if="validation && form.name.$invalid">
-                Your project needs a name
-            </error>
-        </fieldset>
-        <fieldset>
-            <label for="password">Password</label>
-            <input id="password" type="password" name="password"
-                   ng-required="true"
-                   ng-model="model.password">
+<form class="login-form" name="form" method="POST"
+      novalidate
+      ng-submit="ok()">
+    <fieldset>
+        <label for="name">Name</label>
+        <input id="name" type="text" name="name"
+               autofocus
+               ng-required="true"
+               ng-model="model.name">
+        <error if="validation && form.name.$invalid">
+            Your project needs a name
+        </error>
+    </fieldset>
+    <fieldset>
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password"
+               ng-required="true"
+               ng-model="model.password">
 
-            <error if="validation && form.password.$invalid">
-                The username or password you entered is incorrect
-            </error>
-        </fieldset>
-        <fieldset>
-            <input id="remember" type="checkbox"
-                   checked
-                   ng-model="model.stayLoggedIn">
-            <label for="remember">Stay logged in</label>
-        </fieldset>
-        <input type="submit" value="Save" ng-enabled="form.$valid">
-        <button ng-click="cancel()">Cancel</button>
-    </form>
-    <a href>Forgot password?</a>
-</modal>
+        <error if="validation && form.password.$invalid">
+            The username or password you entered is incorrect
+        </error>
+    </fieldset>
+    <input type="submit" value="Save" ng-enabled="form.$valid">
+    <button ng-click="cancel($event)">Cancel</button>
+</form>

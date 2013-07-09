@@ -8,7 +8,11 @@ angular.module('logarithmic').controller('ProjectCtrl', function($scope) {
         $scope.form.$setPristine();
     };
 
-    $scope.save = function() {
+    $scope.ok = function() {
         $scope.validation = true;
+    }
+
+    $scope.cancel = function(event) {
+        event.preventDefault();
     }
 });

@@ -6,7 +6,9 @@ angular.module('logarithmic').directive('validIfEquals', function() {
             scope.$watch(attrs.ngModel, function() {
                 var v1 = scope[attrs.ngModel],
                     v2 = scope[attrs.validIfEquals];
-                ctrl.$setValidity(attrs.ngModel, angular.equals(v1, v2));
+                console.log(v1, v2, angular.equals(v1, v2));
+                console.log(scope, attrs, attrs.ngModel, attrs['validIfEqual']);
+                ctrl.$setValidity(attrs.name, angular.equals(v1, v2));
             });
         }
     };

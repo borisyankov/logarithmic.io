@@ -1,10 +1,11 @@
 angular.module('logarithmic').controller('SignupCtrl', function($scope) {
 
     $scope.model = {
-        firstName: '',
+        firstName: 'first',
         lastName: '',
         email: '',
         password: '',
+        confirmPassword: '',
         subscribe: true
     };
 
@@ -12,8 +13,15 @@ angular.module('logarithmic').controller('SignupCtrl', function($scope) {
         $scope.form.$setPristine();
     };
 
-    $scope.signup = function() {
+    $scope.ok = function() {
         $scope.validation = true;
-        console.log($scope.form);
+        console.log($scope);
+        if ($scope.form.$valid) {
+            console.log('form is valid!');
+        }
+    }
+
+    $scope.cancel = function(event) {
+        event.preventDefault();
     }
 });

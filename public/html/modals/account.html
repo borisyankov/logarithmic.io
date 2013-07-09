@@ -1,7 +1,7 @@
 <modal title="Account" ng-controller="AccountCtrl">
     <form class="account-form" name="form" method="POST"
           novalidate
-          ng-submit="save()">
+          ng-submit="ok()">
         <fieldset class="half">
             <label for="first-name">Name</label>
             <input id="first-name" type="text" name="model.firstName"
@@ -37,6 +37,6 @@
             </error>
         </fieldset>
         <input type="submit" value="Save Changes" ng-enabled="form.$valid">
-        <button ng-click="cancel()">Cancel</button>
+        <button ng-click="cancel($event)">Cancel</button>
     </form>
 </modal>

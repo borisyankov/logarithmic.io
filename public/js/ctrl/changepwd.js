@@ -1,4 +1,4 @@
-angular.module('logarithmic').controller('ChangePasswordCtrl', function($scope) {
+angular.module('logarithmic').controller('ChangepwdCtrl', function($scope) {
 
     $scope.model = {
         oldPassword: '',
@@ -10,7 +10,11 @@ angular.module('logarithmic').controller('ChangePasswordCtrl', function($scope) 
         $scope.form.$setPristine();
     };
 
-    $scope.signup = function() {
+    $scope.ok = function() {
         $scope.validation = true;
+    }
+
+    $scope.cancel = function(event) {
+        event.preventDefault();
     }
 });

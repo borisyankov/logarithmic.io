@@ -1,63 +1,61 @@
-<modal title="Sign up" ng-controller="SignupCtrl">
-    <form class="signup-form" name="form" method="POST"
-          novalidate
-          ng-submit="signup()">
-        <fieldset class="half">
-            <label for="first-name">Name</label>
-            <input id="first-name" type="text" name="model.firstName"
-                   autofocus placeholder="First"
-                   ng-required="true"
-                   ng-model="firstName">
-            <input id="last-name" type="text" name="lastName"
-                   placeholder="Last"
-                   ng-required="true"
-                   ng-model="model.lastName">
-            <error if="validation && (form.firstName.$invalid || form.lastName.$invalid)">
-                You can't leave this empty
-            </error>
-        </fieldset>
-        <fieldset>
-            <label for="signup-email">Email</label>
-            <input id="signup-email" type="email" name="email"
-                   ng-required="true"
-                   ng-model="model.email">
-            <error if="validation && form.email.$invalid">
-                Enter your email address
-            </error>
-        </fieldset>
-        <fieldset>
-            <label for="signup-password">Create a password</label>
-            <input id="signup-password" type="password" name="password"
-                   ng-required="true"
-                   ng-minlength="5"
-                   ng-model="model.password">
+<form class="signup-form" name="form" method="POST"
+      novalidate
+      ng-submit="ok()">
+    <fieldset class="half">
+        <label for="first-name">Name</label>
+        <input id="first-name" type="text" name="firstName"
+               autofocus placeholder="First"
+               ng-required="true"
+               ng-model="model.firstName">
+        <input id="last-name" type="text" name="lastName"
+               placeholder="Last"
+               ng-required="true"
+               ng-model="model.lastName">
+        <error if="validation && (form.firstName.$invalid || form.lastName.$invalid)">
+            You can't leave this empty
+        </error>
+    </fieldset>
+    <fieldset>
+        <label for="signup-email">Email</label>
+        <input id="signup-email" type="email" name="email"
+               ng-required="true"
+               ng-model="model.email">
+        <error if="validation && form.email.$invalid">
+            Enter your email address
+        </error>
+    </fieldset>
+    <fieldset>
+        <label for="signup-password">Create a password</label>
+        <input id="signup-password" type="password" name="password"
+               ng-required="true"
+               ng-minlength="5"
+               ng-model="model.password">
 
-            <error if="validation && form.password.$invalid">
-                Enter a password, 5 letters or more
-            </error>
-        </fieldset>
-        <fieldset>
-            <label for="comfirm-password">Confirm your password</label>
-            <input id="comfirm-password" type="password" name="confirmPassword"
-                   ng-required="true"
-                   valid-if-equals="password"
-                   ng-model="model.confirmPassword">
+        <error if="validation && form.password.$invalid">
+            Enter a password, 5 letters or more
+        </error>
+    </fieldset>
+    <fieldset>
+        <label for="comfirm-password">Confirm your password</label>
+        <input id="comfirm-password" type="password" name="confirmPassword"
+               ng-required="true"
+               valid-if-equals="password"
+               ng-model="model.confirmPassword">
 
-            <error if="validation && password != confirmPassword">
-                These passwords don't match
-            </error>
-        </fieldset>
-        <fieldset>
-            <input id="subscribe" type="checkbox"
-                   ng-model="subscribe">
-            <label for="subscribe">Subscribe to Getting Started Emails</label>
-        </fieldset>
-        <fieldset>
-            <input type="submit" value="Sign up" ng-enabled="form.$valid">
-            <button ng-click="cancel()">Cancel</button>
-        </fieldset>
-        <fieldset>
-            Already have an account? <a href>Log in</a>
-        </fieldset>
-    </form>
-</modal>
+        <error if="validation && form.confirmPassword.$invalid">
+            These passwords don't match
+        </error>
+    </fieldset>
+    <fieldset>
+        <input id="subscribe" type="checkbox"
+               ng-model="subscribe">
+        <label for="subscribe">Subscribe to Getting Started Emails</label>
+    </fieldset>
+    <fieldset>
+        <input type="submit" value="Sign up" ng-enabled="form.$valid">
+        <button ng-click="cancel($event)">Cancel</button>
+    </fieldset>
+    <fieldset>
+        Already have an account? <a href="#/login">Log in</a>
+    </fieldset>
+</form>

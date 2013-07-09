@@ -49,7 +49,7 @@ p, input, label, a, div {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: ProximaNova, serif;
+    font-family: Museo, serif;
 }
 
 body, label {
@@ -93,16 +93,11 @@ a {
 
 .modal {
     background-color: @bg-light;
-    width: 100%;
+    border-bottom: 5px solid @accent;
 
-    border-top: 1px solid @accent;
-    border-bottom: 1px solid @accent;
+    width: 50%;
+    margin: 200px auto;
 
-    position: fixed;
-    width: 500px;
-    top: 50%;
-    left: 50%;
-    height: auto;
     z-index: 1001;
 }
 
@@ -114,6 +109,31 @@ a {
 
 .modal-content {
     margin: 10px 25px;
+}
+
+/* Effect 9: 3D flip vertical */
+.modal-show {
+    -webkit-perspective: 1300px;
+    perspective: 1300px;
+}
+
+.modal-content-hide {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: rotateX(-70deg);
+    -ms-transform: rotateX(-70deg);
+    transform: rotateX(-70deg);
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    opacity: 0;
+}
+
+.md-content-show {
+    -webkit-transform: rotateX(0deg);
+    -moz-transform: rotateX(0deg);
+    -ms-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    opacity: 1;
 }
 
 /* Form ************************************************/
@@ -148,6 +168,10 @@ input:focus, button:focus {
     outline: none;
 }
 
+input[type=submit]::-moz-focus-inner, button::-moz-focus-inner {
+    border: 0;
+}
+
 input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
     border-bottom: 2px solid @accent;
 }
@@ -155,17 +179,15 @@ input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
 button, input[type=submit] {
     border-radius: 20px;
     padding: 5px 25px;
-
 }
 
 button.accent, input[type=submit] {
     #accented-element;
-    border: 3px solid @bg-light;
 }
 
 button {
     #normal-element;
-    border: 3px solid @bg-light;
+    border: none;
 }
 
 button:disabled, input[type=submit]:disabled {
@@ -173,7 +195,7 @@ button:disabled, input[type=submit]:disabled {
 }
 
 button:hover, input[type=submit]:hover {
-    border: 3px solid #b8e9de;
+    // todo
 }
 
 input[type="radio"],

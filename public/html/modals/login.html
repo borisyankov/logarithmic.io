@@ -1,42 +1,41 @@
-<modal title="Log in" ng-controller="LoginCtrl">
-    <form class="login-form" name="form" method="POST"
-          novalidate
-          ng-submit="login()">
-        <fieldset>
-            <label for="email">Email</label>
-            <input id="email" type="email" name="email"
-                   autofocus
-                   ng-required="true"
-                   ng-model="model.email">
-            <error if="validation && form.email.$invalid">
-                Enter your email address
-            </error>
-        </fieldset>
-        <fieldset>
-            <label for="password">Password</label>
-            <input id="password" type="password" name="password"
-                   ng-required="true"
-                   ng-model="model.password">
+<form class="login-form" name="form" method="POST"
+      novalidate
+      ng-submit="ok()">
+    <fieldset>
+        <h2>{{model.email}}</h2>
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email"
+               autofocus
+               ng-required="true"
+               ng-model="model.email">
+        <error if="validation && form.email.$invalid">
+            Enter your email address
+        </error>
+    </fieldset>
+    <fieldset>
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password"
+               ng-required="true"
+               ng-model="model.password">
 
-            <error if="validation && form.password.$invalid">
-                The username or password you entered is incorrect
-            </error>
-        </fieldset>
-        <fieldset>
-            <input id="remember" type="checkbox"
-                   checked
-                   ng-model="model.stayLoggedIn">
-            <label for="remember">Stay logged in</label>
-        </fieldset>
-        <fieldset>
-            <input type="submit" value="Log in" ng-enabled="form.$valid">
-            <button ng-click="cancel()">Cancel</button>
-        </fieldset>
-        <fieldset>
-            <a href>Forgot your password?</a>
-        </fieldset>
-        <fieldset>
-            New here? <a href>Create an Account</a>
-        </fieldset>
-    </form>
-</modal>
+        <error if="validation && form.password.$invalid">
+            The username or password you entered is incorrect
+        </error>
+    </fieldset>
+    <fieldset>
+        <input id="remember" type="checkbox"
+               checked
+               ng-model="model.stayLoggedIn">
+        <label for="remember">Stay logged in</label>
+    </fieldset>
+    <fieldset>
+        <input type="submit" value="Log in" ng-enabled="form.$valid">
+        <button ng-click="cancel($event)">Cancel</button>
+    </fieldset>
+    <fieldset>
+        <a href>Forgot your password?</a>
+    </fieldset>
+    <fieldset>
+        New here? <a href="#/signup">Create an Account</a>
+    </fieldset>
+</form>

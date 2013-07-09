@@ -16,8 +16,15 @@
 </head>
 <body>
 
-<div class="overlay"></div>
-<ng-include src="'/html/modals/login.html'"></ng-include>
+<div class="overlay" ng-animate="modal">
+    <div class="modal">
+        <h2 class="modal-title">Sign up</h2>
+        <div class="modal-content">
+            <div ui-view="modal"></div>
+            <!--<div ui-view="signup"></div>-->
+        </div>
+    </div>
+</div>
 
 <header>
     <div class="wrapper">
@@ -32,9 +39,9 @@
 
 
 <script src="/lib/angular.js" type="text/javascript"></script>
+<script src="/lib/angular-ui-router.js" type="text/javascript"></script>
 
-
-<script>angular.module('logarithmic', []);</script>
+<script src="/js/app.js" type="text/javascript"></script>
 
 <script src="/js/directives/error.js" type="text/javascript"></script>
 <script src="/js/directives/modal.js" type="text/javascript"></script>
@@ -48,8 +55,6 @@
 <script src="/js/ctrl/login.js" type="text/javascript"></script>
 <script src="/js/ctrl/project.js" type="text/javascript"></script>
 <script src="/js/ctrl/changepwd.js" type="text/javascript"></script>
-
-<script src="/js/app.js" type="text/javascript"></script>
 
 
 </body>
