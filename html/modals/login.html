@@ -2,7 +2,6 @@
       novalidate
       ng-submit="ok()">
     <fieldset>
-        <h2>{{model.email}}</h2>
         <label for="email">Email</label>
         <input id="email" type="email" name="email"
                autofocus
@@ -29,7 +28,7 @@
         <label for="remember">Stay logged in</label>
     </fieldset>
     <fieldset>
-        <input type="submit" value="Log in" ng-enabled="form.$valid">
+        <button-progress text="Log in" progress="progress"></button-progress>
         <button ng-click="cancel($event)">Cancel</button>
     </fieldset>
     <fieldset>

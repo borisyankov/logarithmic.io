@@ -1,6 +1,7 @@
 /* Reusable ************************************************/
 
 @accent: #52cccc;
+@accent-dark: #36b3b3;
 @bg-dark: #2c3e50;
 @text-normal: #555;
 @text-strong: black;
@@ -20,13 +21,14 @@
 
 @font-face {
     font-family: Aller;
-    src: url('../fonts/aller.woff'), url('../fonts/aller.ttf');
+    src: url('../fonts/aller.woff') format('woff'), url('../fonts/aller.ttf') format('truetype');
 }
 
 @font-face {
     font-family: Museo;
-    src: url('../fonts/museo.woff'), url('../fonts/museo.ttf');
+    src: url('../fonts/museo.woff') format('woff'), url('../fonts/museo.ttf') format('truetype');
 }
+
 /*
 
 @font-face {
@@ -37,7 +39,7 @@
 
 @font-face {
     font-family: Icons;
-    src: url('../fonts/icons.woff'), url('../fonts/icons.ttf');
+    src: url('../fonts/icons.woff') format('woff'), url('../fonts/icons.ttf') format('truetype');
 }
 
 *, *:after, *:before {
@@ -68,6 +70,10 @@ h2 {
 
 a {
     color: @accent;
+}
+
+a:hover {
+    color: @accent-dark;
 }
 
 ::selection {
@@ -113,7 +119,41 @@ a {
     margin: 10px 25px;
 }
 
-/* Effect 9: 3D flip vertical */
+/* Animation ****************************/
+
+.spinner {
+    -moz-animation: spin 1s infinite linear;
+    -webkit-animation: spin 1s infinite linear;
+    animation: spin 1s infinite linear;
+}
+
+@-moz-keyframes spin {
+    from {
+        -moz-transform: rotate(0deg);
+    }
+    to {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .modal-show {
     -webkit-perspective: 1300px;
     perspective: 1300px;
@@ -181,10 +221,19 @@ input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
 button, input[type=submit] {
     border-radius: 20px;
     padding: 5px 25px;
+    height: 35px;
 }
 
-button.accent, input[type=submit] {
+button.default, input[type=submit] {
     #accented-element;
+}
+
+button:hover {
+    background-color: #bbb;
+}
+
+button.default:hover {
+    background-color: @accent-dark;
 }
 
 button {
@@ -213,19 +262,30 @@ input[type="checkbox"] + label:before {
 }
 
 input[type="radio"] + label:before {
-    content: "\e002"; /* circle-blank */
+    content: "\e003"; /* circle-blank */
 }
 
 input[type="radio"]:checked + label:before {
-    content: "\e003"; /* circle */
+    content: "\e004"; /* circle */
 }
 
 input[type="checkbox"] + label:before {
-    content: "\e000"; /* check-empty */
+    content: "\e002"; /* check-empty */
 }
 
 input[type="checkbox"]:checked + label:before {
     content: "\e001"; /* check */
+}
+
+.icon-progress {
+    height: 20px;
+    background-color: reds;
+    vertical-align: middle;
+}
+
+.icon-progress:before {
+    font-family: Icons;
+    content: "\e000"; /* progress */
 }
 
 .error {

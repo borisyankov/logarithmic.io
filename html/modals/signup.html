@@ -53,7 +53,13 @@
         <label for="subscribe">Subscribe to Getting Started Emails</label>
     </fieldset>
     <fieldset>
-        <input type="submit" value="Sign up" ng-enabled="form.$valid">
+<!--        <button class="default" ng-class="{ progress: progress }" >
+            <div class="spinner" ng-show="progress">
+                <div class="icon-progress"></div>
+            </div>
+            <span ng-hide="progress">Sign up</span>
+        </button>-->
+        <button-progress text="Sign up now" progress="progress"></button-progress>
         <button ng-click="cancel($event)">Cancel</button>
     </fieldset>
     <fieldset>
