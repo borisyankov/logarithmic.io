@@ -1,8 +1,8 @@
 var express = require('express'),
     server = module.exports = express();
 
-require('./env.js')(server, express);
-require('./data')();
-require('./bundle')();
+require('./server/env')(server, express);
+require('./server/data')();
+require('./server/bundle')();
 
 server.listen(process.env.PORT || 1337);
