@@ -1,11 +1,11 @@
-angular.module('logarithmic').controller('SignupCtrl', function($scope, $state) {
+angular.module('logarithmic').controller('SignupCtrl', function($scope, $state, api) {
 
     $scope.model = {
         firstName: '',
         lastName: '',
         email: '',
-        password: '12345',
-        confirmPassword: '3',
+        password: '',
+        confirmPassword: '',
         subscribe: true
     };
 
@@ -18,12 +18,15 @@ angular.module('logarithmic').controller('SignupCtrl', function($scope, $state) 
         $scope.validation = true;
         console.log($scope);
         if ($scope.form.$valid) {
-            console.log('form is valid!');
+            api.signup(model).then(function() {
+                // hide
+            });
         }
     }
 
     $scope.cancel = function(event) {
         event.preventDefault();
-        $state.visible = false;
+        //$state.views.modal = '';
+        console.log($scope);
     }
 });

@@ -16,10 +16,13 @@
   font-family: Museo;
   src: url('../fonts/museo.woff'), url('../fonts/museo.ttf');
 }
+/*
+
 @font-face {
-  font-family: ProximaNova;
-  src: url('../fonts/proxima-nova.woff'), url('../fonts/proxima-nova.ttf');
+    font-family: ProximaNova;
+    src: url('../fonts/proxima-nova.woff'), url('../fonts/proxima-nova.ttf');
 }
+*/
 @font-face {
   font-family: Icons;
   src: url('../fonts/icons.woff'), url('../fonts/icons.ttf');
@@ -34,7 +37,8 @@ p,
 input,
 label,
 a,
-div {
+div,
+button {
   font-family: Aller, sans-serif;
   font-size: 20px;
 }

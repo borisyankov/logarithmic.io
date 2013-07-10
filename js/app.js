@@ -1,49 +1,43 @@
 angular.module('logarithmic', ['ui.state']).config(function($stateProvider, $routeProvider) {
 
-    var modals = ['account', 'changepwd', 'login', 'project', 'signup'];
-    var pages = ['main', 'landing', 'dashboard'];
+    function view(name, type) {
+        return {
+            templateUrl: '/html/' + type + 's/' + name + '.html',
+            controller: name[0].toUpperCase() + name.slice(1) + 'Ctrl'
+        }
+    }
 
     $stateProvider
         .state('index', {
             url: '', // root route
-            views: {
-                "page": {
-                    templateUrl: "/html/pages/main.html"
-                },
-                "modal": {
-                    templateUrl: ""
-                }
-            }
+            views: view('main', 'page')
         });
 
-    modals.forEach(function(modal) {
+    ['account', 'changepwd', 'login', 'project', 'signup'].forEach(function(modal) {
         $stateProvider
             .state(modal, {
                 url: '/' + modal,
                 views: {
-                    "page": {
-                        templateUrl: "index.html"
-                    },
-                    "modal": {
-                        templateUrl: "/html/modals/" + modal + ".html",
-                        controller: modal[0].toUpperCase() + modal.slice(1) + 'Ctrl'
-                    }
+                    page: view('dashboard', 'page'),
+                    modal: view(modal, 'modal')
+                },
+                onEnter: function($rootScope) {
+                    $rootScope.modal = true;
+                    console.log($rootScope);
                 }
             });
     });
 
-    pages.forEach(function(page) {
+    ['main', 'landing', 'dashboard'].forEach(function(page) {
         $stateProvider
             .state(page, {
                 url: "/" + page,
                 views: {
-                    "page": {
-                        templateUrl: '/html/pages/' + page + '.html',
-                        controller: page[0].toUpperCase() + page.slice(1) + 'Ctrl'
-                    },
-                    "modal": {
-                        templateUrl: ''
-                    }
+                    page: view(page, 'page')
+                },
+                onEnter: function($rootScope) {
+                    $rootScope.modal = false;
+                    console.log($rootScope);
                 }
             });
     });
@@ -51,3 +45,4 @@ angular.module('logarithmic', ['ui.state']).config(function($stateProvider, $rou
 
 function MainCtrl() {}
 function LandingCtrl() {}
+function DashboardCtrl() {}
