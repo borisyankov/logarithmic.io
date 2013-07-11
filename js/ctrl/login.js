@@ -3,7 +3,7 @@ angular.module('logarithmic').controller('LoginCtrl', function($scope) {
     $scope.model = {
         email: '1',
         password: '1',
-        stayLoggedIn: false,
+        stayLoggedIn: true,
         roflcopter: 'zuup'
     };
 
@@ -19,11 +19,26 @@ angular.module('logarithmic').controller('LoginCtrl', function($scope) {
     };
 
     $scope.cancel = function(event) {
-        $scope.visible = false;
+
         event.preventDefault();
+
+        if ($scope.progress) {
+            $scope.progress = false;
+        } else {
+            //$state.views.modal = ''; hide modal
+        }
     }
 
     $scope.ok = function() {
-        console.log('login');
+
+        $scope.validation = true;
+        if ($scope.form.$invalid) return;
+
+        $scope.progress = true;
+        api.login($scope.model).then(function() {
+            console.log('logged in or not?');
+            $scope.progress = false;
+        });
+
     }
 });

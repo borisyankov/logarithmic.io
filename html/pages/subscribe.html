@@ -1,0 +1,24 @@
+<h2>
+    Reporting and analysis for your front-end with a single line of code.
+</h2>
+<section class="wrapper">
+    <form name="form" method="POST"
+          novalidate
+          ng-submit="ok()">
+        <fieldset>
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email"
+                   autofocus
+                   placeholder="Enter your email address"
+                   ng-disabled="progress"
+                   ng-required="true"
+                   ng-model="email">
+            <error if="validation && form.email.$invalid">
+                Enter your email address
+            </error>
+        </fieldset>
+        <fieldset>
+            <button-progress text="Notify Me" progress="progress"></button-progress>
+        </fieldset>
+    </form>
+</section>

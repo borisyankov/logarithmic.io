@@ -5,10 +5,12 @@
         <label for="first-name">Name</label>
         <input id="first-name" type="text" name="firstName"
                autofocus placeholder="First"
+               ng-disabled="progress"
                ng-required="true"
                ng-model="firstName">
         <input id="last-name" type="text" name="lastName"
                placeholder="Last"
+               ng-disabled="progress"
                ng-required="true"
                ng-model="model.lastName">
         <error if="validation && (form.firstName.$invalid || form.lastName.$invalid)">
@@ -19,6 +21,7 @@
         <label for="email">Email</label>
         <input id="email" type="email" name="email"
                autofocus
+               ng-disabled="progress"
                ng-required="true"
                ng-model="model.email">
         <error if="validation && form.email.$invalid">
@@ -28,6 +31,7 @@
     <fieldset>
         <label for="password">Password</label>
         <input id="password" type="password" name="password"
+               ng-disabled="progress"
                ng-required="true"
                ng-model="model.password">
 

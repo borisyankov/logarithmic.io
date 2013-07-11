@@ -6,10 +6,12 @@
         <input id="first-name" type="text" name="firstName"
                autofocus
                placeholder="First"
+               ng-disabled="progress"
                ng-required="true"
                ng-model="model.firstName">
         <input id="last-name" type="text" name="lastName"
                placeholder="Last"
+               ng-disabled="progress"
                ng-required="true"
                ng-model="model.lastName">
         <error if="validation && (form.firstName.$invalid || form.lastName.$invalid)">
@@ -19,6 +21,7 @@
     <fieldset>
         <label for="email">Email</label>
         <input id="email" type="email" name="email"
+               ng-disabled="progress"
                ng-required="true"
                ng-model="model.email">
         <error if="validation && form.email.$invalid">
@@ -28,10 +31,10 @@
     <fieldset>
         <label for="password">Create a password</label>
         <input id="password" type="password" name="password"
+               ng-disabled="progress"
                ng-required="true"
                ng-minlength="5"
                ng-model="model.password">
-
         <error if="validation && form.password.$invalid">
             Enter a password, 5 letters or more
         </error>
@@ -40,6 +43,7 @@
         <label for="comfirm-password">Confirm your password</label>
         <input id="comfirm-password" type="password" name="confirmPassword"
                ng-required="true"
+               ng-disabled="progress"
                valid-if-equals="model.password"
                ng-model="model.confirmPassword">
 
@@ -49,16 +53,11 @@
     </fieldset>
     <fieldset>
         <input id="subscribe" type="checkbox"
+               ng-disabled="progress"
                ng-model="model.subscribe">
         <label for="subscribe">Subscribe to Getting Started Emails</label>
     </fieldset>
     <fieldset>
-<!--        <button class="default" ng-class="{ progress: progress }" >
-            <div class="spinner" ng-show="progress">
-                <div class="icon-progress"></div>
-            </div>
-            <span ng-hide="progress">Sign up</span>
-        </button>-->
         <button-progress text="Sign up now" progress="progress"></button-progress>
         <button ng-click="cancel($event)">Cancel</button>
     </fieldset>

@@ -5,6 +5,7 @@
         <label for="name">Name</label>
         <input id="name" type="text" name="name"
                autofocus
+               ng-disabled="progress"
                ng-required="true"
                ng-model="model.name">
         <error if="validation && form.name.$invalid">
@@ -14,6 +15,7 @@
     <fieldset>
         <label for="password">Password</label>
         <input id="password" type="password" name="password"
+               ng-disabled="progress"
                ng-required="true"
                ng-model="model.password">
 

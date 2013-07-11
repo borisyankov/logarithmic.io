@@ -1,12 +1,7 @@
-angular.module('logarithmic').controller('SignupCtrl', function($scope, $state, api) {
+angular.module('logarithmic').controller('SubscribeCtrl', function($scope, $state, api) {
 
     $scope.model = {
-        firstName: 'Boris',
-        lastName: 'Yankov',
-        email: 'borisyankov@gmail.com',
-        password: 'smasher',
-        confirmPassword: 'smasher',
-        subscribe: true
+        email: 'Boris'
     };
 
     $scope.show = function() {
@@ -20,7 +15,7 @@ angular.module('logarithmic').controller('SignupCtrl', function($scope, $state, 
         if ($scope.form.$invalid) return;
 
         $scope.progress = true;
-        api.signup($scope.model).then(function() {
+        api.subscribe($scope.email).then(function() {
             console.log('finished');
             $scope.progress = false;
         });

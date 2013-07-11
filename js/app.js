@@ -28,7 +28,7 @@ angular.module('logarithmic', ['ui.state']).config(function($stateProvider, $rou
             });
     });
 
-    ['main', 'landing', 'dashboard'].forEach(function(page) {
+    ['main', 'subscribe', 'landing', 'dashboard'].forEach(function(page) {
         $stateProvider
             .state(page, {
                 url: "/" + page,

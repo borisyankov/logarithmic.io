@@ -4,6 +4,7 @@
     <fieldset>
         <label for="oldPassword">Old Password</label>
         <input id="oldPassword" type="password" name="oldPassword"
+               ng-disabled="progress"
                ng-required="true"
                ng-model="model.oldPassword">
 
@@ -14,6 +15,7 @@
     <fieldset>
         <label for="newPassword">New password</label>
         <input id="newPassword" type="password" name="newPassword"
+               ng-disabled="progress"
                ng-required="true"
                ng-minlength="5"
                ng-model="model.newPassword">
@@ -25,6 +27,7 @@
     <fieldset>
         <label for="comfirm-password">Confirm your password</label>
         <input id="comfirm-password" type="password" name="confirmPassword"
+               ng-disabled="progress"
                ng-required="true"
                valid-if-equals="password"
                ng-model="model.confirmPassword">
