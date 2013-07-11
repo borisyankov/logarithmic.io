@@ -29,19 +29,18 @@ angular.module('logarithmic').factory('api', function($http, $q) {
 
     api.subscribe = function(email) {
 
-        var apiUrl = 'https://us7.api.mailchimp.com/2.0/list/subscribe',
+        var apiUrl = 'https://us7.api.mailchimp.com/2.0/lists/subscribe',
             request = {
-                apiKey: '9f382cf81b9109ed54e7a51b5a50f0a9-us7',
-                id: '??',
-                email: email,
-                merge_vars: { email: email },
-                email_type: '',
-                double_optin: true, // ?
-                update_existing: '',
-                replace_interests: '',
+                apikey: '9f382cf81b9109ed54e7a51b5a50f0a9-us7',
+                id: 'e73105fd8d',
+                email: { email: email },
+                double_optin: true,
+                update_existing: true,
                 send_welcome: true
             },
             deferred = $q.defer();
+
+        return $http.post(apiUrl, request);
 
         return $http.post(apiUrl, request);
 

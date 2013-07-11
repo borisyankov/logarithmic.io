@@ -28,21 +28,29 @@ angular.module('logarithmic', ['ui.state']).config(function($stateProvider, $rou
             });
     });
 
-    ['main', 'subscribe', 'landing', 'dashboard'].forEach(function(page) {
-        $stateProvider
-            .state(page, {
-                url: "/" + page,
-                views: {
-                    page: view(page, 'page')
-                },
-                onEnter: function($rootScope) {
-                    $rootScope.modal = false;
-                    console.log($rootScope);
-                }
-            });
-    });
+    ['main', 'subscribe', 'pricing', 'landing', 'support',
+        'dashboard'].forEach(function(page) {
+            $stateProvider
+                .state(page, {
+                    url: "/" + page,
+                    views: {
+                        page: view(page, 'page')
+                    },
+                    onEnter: function($rootScope) {
+                        $rootScope.modal = false;
+                        console.log($rootScope);
+                    }
+                });
+        });
 });
 
-function MainCtrl() {}
-function LandingCtrl() {}
-function DashboardCtrl() {}
+function MainCtrl() {
+}
+function LandingCtrl() {
+}
+function DashboardCtrl() {
+}
+function PricingCtrl() {
+}
+function SupportCtrl() {
+}

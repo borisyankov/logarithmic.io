@@ -87,6 +87,25 @@ a:hover {
   transition: all 0.3s;
   background: rgba(0, 0, 0, 0.5);
 }
+/* Main ************************************************/
+nav li {
+  list-style: none;
+  display: inline-block;
+}
+nav a {
+  text-decoration: none;
+  padding: 10px;
+}
+nav a:hover {
+  color: white;
+  background: #52cccc;
+}
+footer {
+  position: absolute;
+  height: 20px;
+  bottom: 0;
+  margin: 10px;
+}
 /* Modal ************************************************/
 .modal {
   background-color: #f5f5f5;
