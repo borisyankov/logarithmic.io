@@ -9,7 +9,7 @@ angular.module('logarithmic', ['ui.state']).config(function($stateProvider, $rou
 
     $stateProvider
         .state('index', {
-            url: '', // root route
+            url: '',
             views: view('main', 'page')
         });
 
@@ -38,7 +38,6 @@ angular.module('logarithmic', ['ui.state']).config(function($stateProvider, $rou
                     },
                     onEnter: function($rootScope) {
                         $rootScope.modal = false;
-                        console.log($rootScope);
                     }
                 });
         });
