@@ -9,13 +9,13 @@
             <input id="email" type="email" name="email"
                    autofocus
                    placeholder="Enter your email address"
-                   ng-disabled="progress"
+                   ng-disabled="form.$progress"
                    ng-required="true"
                    ng-model="email">
-            <error if="validation && form.email.$invalid">
+            <error if="form.$validation && form.email.$invalid">
                 Enter your email address
             </error>
-            <button-progress text="Notify Me" progress="progress"></button-progress>
+            <button-submit ok="subscribe(okComplete)">Notify Me</button-submit>
         </fieldset>
         We don't spam. And you can unsubscribe any time.
     </form>

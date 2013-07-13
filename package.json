@@ -1,7 +1,7 @@
 {
     "name": "logarithmic",
     "version": "0.3.0",
-    "author": "Boris Yankov <borisyankov@google>",
+    "author": "Boris Yankov <borisyankov@google.com>",
     "scripts": {
         "start": "node ./bin/http-server",
         "test": "vows --spec --isolate",
@@ -16,4 +16,3 @@
         "node": ">=0.8"
     }
 }
-

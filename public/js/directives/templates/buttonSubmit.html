@@ -1,0 +1,8 @@
+<button class="default animated"
+        ng-animate="{ invalid: 'shake' }"
+        ng-click="click()">
+    <div class="spinner" ng-show="form.$progress">
+        <div class="icon-progress"></div>
+    </div>
+    <span ng-hide="form.$progress" ng-transclude></span>
+</button>

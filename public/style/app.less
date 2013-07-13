@@ -6,6 +6,7 @@
 @text-normal: #555;
 @text-strong: black;
 @bg-light: #f5f5f5;
+@error: #cc0044;
 
 #accented-element {
     color: white;
@@ -97,6 +98,14 @@ a:hover {
     background: rgba(0, 0, 0, 0.5);
 }
 
+.visible {
+    visibility: visible;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
 /* Main ************************************************/
 
 nav li {
@@ -139,7 +148,7 @@ footer {
 }
 
 .modal-content {
-    margin: 10px 25px;
+    margin: 20px 25px;
 }
 
 /* Animation ****************************/
@@ -177,6 +186,80 @@ footer {
     }
 }
 
+.fade-hide, .fade-show {
+    transition: all linear 0.5s;
+}
+
+.fade-show.fade-show-active,
+.fade-hide {
+    opacity: 1;
+}
+
+.fade-hide.fade-hide-active,
+.fade-show {
+    opacity: 0;
+}
+
+.animated {
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -ms-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+}
+
+.animated.hinge {
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -ms-animation-duration: 1s;
+    animation-duration: 1s;
+}
+
+@-webkit-keyframes shake {
+    0%, 100% {
+        -webkit-transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        -webkit-transform: translateX(-10px);
+    }
+    20%, 40%, 60%, 80% {
+        -webkit-transform: translateX(10px);
+    }
+}
+
+@-moz-keyframes shake {
+    0%, 100% {
+        -moz-transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        -moz-transform: translateX(-10px);
+    }
+    20%, 40%, 60%, 80% {
+        -moz-transform: translateX(10px);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-10px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(10px);
+    }
+}
+
+.shake {
+    -webkit-animation-name: shake;
+    -moz-animation-name: shake;
+    animation-name: shake;
+}
+
 .modal-show {
     -webkit-perspective: 1300px;
     perspective: 1300px;
@@ -204,8 +287,12 @@ footer {
 /* Form ************************************************/
 
 fieldset {
-    padding: 0 0 10px 0;
+    padding: 0;
     margin: 0;
+}
+
+.control-group {
+    padding: 0 0 10px 0;
 }
 
 input, fieldset {
@@ -311,11 +398,15 @@ input[type="checkbox"]:checked + label:before {
     content: "\e000"; /* progress */
 }
 
+.error-wrapper {
+    height: 35px;
+}
+
 .error {
     width: 100%;
     padding: 5px;
     color: white;
-    background-color: #cc0044;
+    background-color: @error;
 }
 
 /* Stats **********************************************/

@@ -10,7 +10,9 @@ angular.module('logarithmic', ['ui.state']).config(function($stateProvider, $rou
     $stateProvider
         .state('index', {
             url: '',
-            views: view('main', 'page')
+            views: {
+                page: view('subscribe', 'page')
+            }
         });
 
     ['account', 'changepwd', 'login', 'project', 'signup'].forEach(function(modal) {
