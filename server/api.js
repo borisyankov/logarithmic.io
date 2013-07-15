@@ -5,6 +5,7 @@ module.exports = function(app) {
 
     app.post('/api/login', login);
     app.post('/api/signup', signup);
+    app.put('/api/account', updateAccount);
     app.post('/api/subscribe', subscribe);
 
     app.get('/api/projects', listProjects);
@@ -69,9 +70,21 @@ module.exports = function(app) {
         }
     }
 
-    function listProjects() {}
-    function getProject() {}
-    function createProject() {}
-    function updateProject() {}
-    function deleteProject() {}
+    function updateAccount() {
+    }
+
+    function listProjects() {
+    }
+
+    function getProject() {
+    }
+
+    function createProject() {
+    }
+
+    function updateProject() {
+    }
+
+    function deleteProject() {
+    }
 };
