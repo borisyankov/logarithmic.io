@@ -9,20 +9,43 @@ module.exports = function(app) {
 
 
     function login(req, res) {
-        if (data.isLoginValid(req.model)) {
-            req.statusCode = 123;
+        var loginModel = req.param('login');
+
+        if (data.isLoginValid(loginModel)) {
+            res.statusCode = 123;
             return res.send('Account is invalid');
         } else {
-
+            // whatever
         }
     }
 
     function signup(req, res) {
-        console.log(req.email);
-        return data.createAccount(model);
+
+        var signupModel = req.param('signup');
+
+        data.doAccountExist(signupModel.email, function(err, result) {
+            console.log('err:', err);
+            console.log('result:', result);
+
+            if (result) {
+                console.log('exists');
+                res.statusCode = 409;
+                res.send('Email already registered')
+            } else {
+                console.log('creating');
+                data.createAccount(signupModel, function(err, result) {
+                    console.log('done creating');
+                    console.log('err:', err);
+                    console.log('result:', result);
+                    res.send('ok');
+                });
+            }
+        });
     }
 
     function subscribe(req, res) {
+
+        console.log(req.param.email);
 
         res.send('ok');
 
