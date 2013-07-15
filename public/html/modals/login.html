@@ -1,6 +1,6 @@
 <form name="form" method="POST"
       novalidate
-      ng-submit="ok()">
+      ng-submit="login()">
     <fieldset>
         <label for="email">Email</label>
         <input id="email" type="email" name="email"
@@ -15,30 +15,30 @@
     <fieldset>
         <label for="password">Password</label>
         <input id="password" type="password" name="password"
-               ng-disabled="progress"
+               ng-disabled="form.$progress"
                ng-required="true"
                ng-minlength="5"
                ng-model="model.password">
 
-        <error if="validation && form.password.$invalid">
+        <error if="form.$validation && form.password.$invalid">
             The username or password you entered is incorrect
         </error>
     </fieldset>
     <fieldset>
         <input id="remember" type="checkbox"
                checked
-               ng-disabled="progress"
+               ng-disabled="form.$progress"
                ng-model="model.stayLoggedIn">
         <label for="remember">Stay logged in</label>
     </fieldset>
     <fieldset>
-        <button-progress text="Log in" progress="progress"></button-progress>
-        <button ng-click="cancel($event)">Cancel</button>
+        <button-submit>Log in</button-submit>
+        <button-cancel>Cancel</button-cancel>
     </fieldset>
     <fieldset>
         <a href>Forgot your password?</a>
     </fieldset>
     <fieldset>
-        New here? <a href="#/signup">Create an Account</a>
+        New here? <a href="#!/signup">Create an Account</a>
     </fieldset>
 </form>

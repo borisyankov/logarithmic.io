@@ -4,25 +4,25 @@ angular.module('logarithmic').directive('buttonSubmit', function($q, $animator) 
         replace: true,
         templateUrl: '/js/directives/templates/buttonSubmit.html',
         transclude: true,
+        scope: { form: '@' },
         link: function(scope, element, attrs) {
 
             scope.click = function() {
 
-                var form = scope.form,
+                var form = scope.$parent.form,
                     animator = $animator(scope, attrs);
 
                 form.$validation = true;
 
-                if (form.$invalid) {
+                if (form.$invalid || form.$progress) {
                     animator.animate('invalid', element);
                 } else {
-                    form.$progress = true;
-                    scope.okComplete = $q.defer();
+                    form.$progress = $q.defer();
+
                     scope.$eval(attrs.ok);
 
-                    scope.okComplete.promise.then(function() {
-                        form.$progress = false;
-                        console.log('done');
+                    form.$progress.promise.then(function() {
+                        form.$progress = undefined;
                     });
                 }
             }

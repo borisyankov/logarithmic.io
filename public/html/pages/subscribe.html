@@ -1,10 +1,13 @@
 <h2>
     Error logging and analysis for your front-end with a single line of code.
 </h2>
-<section class="wrapper" style="background-color: #f5f5f5; padding: 10px 25px;">
+<section class="wrapper"
+         style="background-color: #f5f5f5; padding: 0.5em 1em; width: 50%"
+        ng-switch on="step">
     <form name="form" method="POST"
           novalidate
-          ng-submit="ok()">
+          ng-switch-when="1"
+          ng-submit="subscribe()">
         <fieldset>
             <input id="email" type="email" name="email"
                    autofocus
@@ -12,11 +15,11 @@
                    ng-disabled="form.$progress"
                    ng-required="true"
                    ng-model="email">
-            <error if="form.$validation && form.email.$invalid">
-                Enter your email address
-            </error>
-            <button-submit ok="subscribe(okComplete)">Notify Me</button-submit>
+            <button-submit>Notify Me</button-submit>
         </fieldset>
         We don't spam. And you can unsubscribe any time.
     </form>
+    <div ng-switch-when="2">
+        Done!
+    </div>
 </section>

@@ -1,4 +1,6 @@
-angular.module('logarithmic', ['ui.state']).config(function($stateProvider, $routeProvider) {
+angular.module('logarithmic', ['ui.state']).config(function($stateProvider, $locationProvider) {
+
+    $locationProvider.hashPrefix('!'); // .html5Mode(true)
 
     function view(name, type) {
         return {
@@ -24,8 +26,7 @@ angular.module('logarithmic', ['ui.state']).config(function($stateProvider, $rou
                     modal: view(modal, 'modal')
                 },
                 onEnter: function($rootScope) {
-                    $rootScope.modal = true;
-                    console.log($rootScope);
+                    $rootScope.modal = modal;
                 }
             });
     });

@@ -1,8 +1,11 @@
 angular.module('logarithmic').controller('SubscribeCtrl', function($scope, $state, api) {
 
-    $scope.subscribe = function(deferred) {
+    $scope.step = 1;
+
+    $scope.$formSubmit = function(deferred) {
         api.subscribe($scope.email).success(function() {
             deferred.resolve();
+            $scope.step++;
         });
     }
 });

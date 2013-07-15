@@ -11,29 +11,13 @@ angular.module('logarithmic').controller('SignupCtrl', function($scope, $state, 
 
     $scope.show = function() {
         $scope.form.$setPristine();
-        $scope.visible = true;
     };
 
-    $scope.ok = function() {
+    $scope.signup = function() {
 
-        $scope.validation = true;
-        if ($scope.form.$invalid) return;
-
-        $scope.progress = true;
         api.signup($scope.model).then(function() {
-            console.log('finished');
-            $scope.progress = false;
+            $scope.form.$progress.resolve();
+            $scope.form.$progress = undefined;
         });
-    }
-
-    $scope.cancel = function(event) {
-
-        event.preventDefault();
-
-        if ($scope.progress) {
-            $scope.progress = false;
-        } else {
-            //$state.views.modal = ''; hide modal
-        }
     }
 });

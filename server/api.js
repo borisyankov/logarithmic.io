@@ -1,28 +1,28 @@
 module.exports = function(app) {
 
-    var request = require('request');
+    var request = require('request'),
+        data = require('./data/data');
 
-    app.post('/api/login', function(req, res) {
-        return ProductModel.find(function(err, products) {
-            if (!err) {
-                return res.send(products);
-            } else {
-                return console.log(err);
-            }
-        });
-    });
+    app.post('/api/login', login);
+    app.post('/api/signup', signup);
+    app.post('/api/subscribe', subscribe);
 
-    app.post('/api/signup', function(req, res) {
-        return ProductModel.find(function(err, products) {
-            if (!err) {
-                return res.send(products);
-            } else {
-                return console.log(err);
-            }
-        });
-    });
 
-    app.post('/api/subscribe', function(req, res) {
+    function login(req, res) {
+        if (data.isLoginValid(req.model)) {
+            req.statusCode = 123;
+            return res.send('Account is invalid');
+        } else {
+
+        }
+    }
+
+    function signup(req, res) {
+        console.log(req.email);
+        return data.createAccount(model);
+    }
+
+    function subscribe(req, res) {
 
         res.send('ok');
 
@@ -38,5 +38,5 @@ module.exports = function(app) {
         request.post(apiUrl, { form: requestData }, function(error, response, body) {
             console.log(response.body);
         });
-    });
+    }
 };
