@@ -63,9 +63,12 @@ h2 {
 }
 a {
   color: #52cccc;
+  text-decoration: none;
+  border-bottom: 1px solid #52cccc;
 }
 a:hover {
   color: #36b3b3;
+  border-bottom: 1px solid #36b3b3;
 }
 ::selection {
   color: white;
@@ -101,6 +104,7 @@ nav li {
 nav a {
   text-decoration: none;
   padding: 10px;
+  border: none;
 }
 nav a:hover {
   color: white;
@@ -279,12 +283,14 @@ fieldset {
   padding: 0 0 10px 0;
 }
 input,
-fieldset {
+fieldset,
+select {
   border: none;
 }
 input[type=text],
 input[type=email],
-input[type=password] {
+input[type=password],
+select {
   box-sizing: border-box;
   color: #000000;
   padding: 5px;
@@ -299,7 +305,8 @@ label {
   width: 49%;
 }
 input:focus,
-button:focus {
+button:focus,
+select:focus {
   outline: none;
 }
 input[type=submit]::-moz-focus-inner,
@@ -308,7 +315,8 @@ button::-moz-focus-inner {
 }
 input[type=text]:focus,
 input[type=email]:focus,
-input[type=password]:focus {
+input[type=password]:focus,
+select:focus {
   border-bottom: 2px solid #52cccc;
 }
 button,
