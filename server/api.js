@@ -64,10 +64,10 @@ module.exports = function(app) {
 
         if (data.isLoginValid(loginModel)) {
             res.cookie('user', 'server123', { maxAge: 365 * 24 * 60 * 60 * 1000 });
-            res.end('ok');
+            res.send('ok');
         } else {
             res.statusCode = 401;
-            res.end('Login incorrect');
+            res.send('Login incorrect');
         }
     }
 
