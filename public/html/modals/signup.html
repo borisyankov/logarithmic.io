@@ -51,18 +51,17 @@
             These passwords don't match
         </error>
     </fieldset>
-    <fieldset>
+    <div class="control-group">
         <input id="subscribe" type="checkbox"
                ng-disabled="form.$progress"
                ng-model="model.subscribe">
         <label for="subscribe">Subscribe to Getting Started Emails</label>
-    </fieldset>
-    <fieldset>
+    </div>
+    <div class="control-group">
         <button-submit>Sign up now</button-submit>
         <button-cancel>Cancel</button-cancel>
-    </fieldset>
+    </div>
     <fieldset>
-        <h2>!{{$scope.form.$progress == undefined}}!</h2>
         Already have an account? <a href="#!/login">Log in</a>
     </fieldset>
 </form>

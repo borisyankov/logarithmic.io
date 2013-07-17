@@ -24,17 +24,17 @@
             The username or password you entered is incorrect
         </error>
     </fieldset>
-    <fieldset>
+    <div class="control-group">
         <input id="remember" type="checkbox"
                checked
                ng-disabled="form.$progress"
                ng-model="model.stayLoggedIn">
         <label for="remember">Stay logged in</label>
-    </fieldset>
-    <fieldset>
+    </div>
+    <div class="control-group">
         <button-submit>Log in</button-submit>
         <button-cancel>Cancel</button-cancel>
-    </fieldset>
+    </div>
     <fieldset>
         <a href>Forgot your password?</a>
     </fieldset>

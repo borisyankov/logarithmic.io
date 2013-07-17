@@ -1,4 +1,4 @@
-angular.module('logarithmic').controller('AccountCtrl', function($scope) {
+angular.module('logarithmic').controller('AccountCtrl', function($scope, $cookieStore) {
 
     $scope.model = {
         email: ''
@@ -16,4 +16,7 @@ angular.module('logarithmic').controller('AccountCtrl', function($scope) {
         alert('canceled');
         event.preventDefault();
     }
+
+    console.log($cookieStore.get('user'));
+    //$cookieStore.put('user', 'bobolino');
 });

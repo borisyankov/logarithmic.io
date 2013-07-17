@@ -1,4 +1,10 @@
 /* Reusable ************************************************/
+#wrapper {
+  padding: 0 5.555555555555555%;
+}
+#rounded-corners {
+  border-radius: 2px;
+}
 #accented-element {
   color: white;
   background: #52cccc;
@@ -40,7 +46,7 @@ a,
 div,
 button {
   font-family: Aller, sans-serif;
-  font-size: 20px;
+  font-size: 18px;
 }
 h1,
 h2,
@@ -49,6 +55,10 @@ h4,
 h5,
 h6 {
   font-family: Museo, serif;
+}
+body {
+  padding: 0;
+  margin: 0;
 }
 body,
 label {
@@ -97,6 +107,11 @@ a:hover {
   visibility: hidden;
 }
 /* Main ************************************************/
+header {
+  padding: 0 5.555555555555555%;
+  width: 100%;
+  background-color: #363f44;
+}
 nav li {
   list-style: none;
   display: inline-block;
@@ -105,10 +120,14 @@ nav a {
   text-decoration: none;
   padding: 10px;
   border: none;
+  color: white;
 }
 nav a:hover {
   color: white;
   background: #52cccc;
+}
+.page {
+  padding: 0 5.555555555555555%;
 }
 footer {
   position: absolute;
@@ -116,11 +135,29 @@ footer {
   bottom: 0;
   margin: 10px;
 }
+/* Page ************************************************/
+.well {
+  width: 100%;
+  background-color: #f5f5f5;
+  padding: 1em 1.5em;
+}
+.subscribe-well {
+  width: 100%;
+  background-color: #f5f5f5;
+  padding: 1em 1.5em;
+}
+.subscribe-well input {
+  width: 75% !important;
+}
+.subscribe-well button {
+  width: 24.5% !important;
+}
 /* Modal ************************************************/
 .modal {
   background-color: #f5f5f5;
   border-bottom: 5px solid #52cccc;
-  width: 50%;
+  width: 480px;
+  max-width: 100%;
   margin: 200px auto;
   z-index: 1001;
 }
@@ -280,7 +317,7 @@ fieldset {
   margin: 0;
 }
 .control-group {
-  padding: 0 0 10px 0;
+  padding: 0 0 1em 0;
 }
 input,
 fieldset,
@@ -294,6 +331,7 @@ select {
   box-sizing: border-box;
   color: #000000;
   padding: 5px;
+  margin: 0;
   border-bottom: 2px solid #ddd;
   width: 100%;
 }
@@ -321,9 +359,10 @@ select:focus {
 }
 button,
 input[type=submit] {
-  border-radius: 20px;
-  padding: 5px 25px;
+  border-radius: 2px;
+  padding: 5px 2em;
   height: 35px;
+  cursor: pointer;
 }
 button.default,
 input[type=submit] {
@@ -387,13 +426,14 @@ input[type="checkbox"]:checked + label:before {
 
 }
 .error-wrapper {
-  height: 35px;
+  height: 1.5em;
 }
 .error {
   width: 100%;
   padding: 3px 5px;
   color: white;
   background-color: #cc0044;
+  border-radius: 2px;
 }
 /* Stats **********************************************/
 .numeric {

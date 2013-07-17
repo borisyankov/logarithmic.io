@@ -19,7 +19,7 @@ module.exports = function(app) {
 
         console.log(req.param.email);
 
-        res.send('ok');
+        res.end('ok');
 
         var apiUrl = 'https://us7.api.mailchimp.com/2.0/lists/subscribe',
             requestData = {
@@ -63,10 +63,11 @@ module.exports = function(app) {
         var loginModel = req.param('login');
 
         if (data.isLoginValid(loginModel)) {
-            res.statusCode = 123;
-            return res.send('Account is invalid');
+            res.cookie('user', 'server123', { maxAge: 365 * 24 * 60 * 60 * 1000 });
+            res.end('ok');
         } else {
-            // whatever
+            res.statusCode = 401;
+            res.end('Login incorrect');
         }
     }
 
