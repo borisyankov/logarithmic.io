@@ -35,25 +35,17 @@
 
 @font-face {
     font-family: Aller;
-    src: url('../fonts/aller.woff') format('woff'), url('../fonts/aller.ttf') format('truetype');
+    src: url('../fonts/aller.woff') format('woff');
 }
 
 @font-face {
     font-family: Museo;
-    src: url('../fonts/museo.woff') format('woff'), url('../fonts/museo.ttf') format('truetype');
+    src: url('../fonts/museo.woff') format('woff');
 }
-
-/*
-
-@font-face {
-    font-family: ProximaNova;
-    src: url('../fonts/proxima-nova.woff'), url('../fonts/proxima-nova.ttf');
-}
-*/
 
 @font-face {
     font-family: Icons;
-    src: url('../fonts/icons.woff') format('woff'), url('../fonts/icons.ttf') format('truetype');
+    src: url('../fonts/icons.woff') format('woff');
 }
 
 *, *:after, *:before {
@@ -63,7 +55,7 @@
 
 p, input, label, a, div, button {
     font-family: Aller, sans-serif;
-    font-size: 18px;
+    font-size: 1.1rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -83,8 +75,7 @@ h2 {
     color: @accent;
     font-weight: 100;
     margin: 0;
-    font-size: 36px;
-    line-height: 36px;
+    font-size: 2em;
 }
 
 a {
@@ -142,7 +133,7 @@ nav li {
 
 nav a {
     text-decoration: none;
-    padding: 10px;
+    padding: 0.5em;
     border: none;
     color: white;
 }
@@ -157,9 +148,9 @@ nav a:hover {
 
 footer {
     position: absolute;
-    height: 20px;
+    height: 2em;
     bottom: 0;
-    margin: 10px;
+    margin: 1em;
 }
 
 /* Page ************************************************/
@@ -356,7 +347,7 @@ input, fieldset, select {
 input[type=text], input[type=email], input[type=password], select {
     box-sizing: border-box;
     color: @text-strong;
-    padding: 5px;
+    padding: 0.25em;
     margin: 0;
     border-bottom: 2px solid #ddd;
     width: 100%;
@@ -388,8 +379,8 @@ select:focus {
 
 button, input[type=submit] {
     #rounded-corners;
-    padding: 5px 2em;
-    height: 35px;
+    padding: 0 1.5em;
+    height: 2em;
     cursor: pointer;
 }
 
@@ -426,8 +417,8 @@ input[type="checkbox"] {
 input[type="radio"] + label:before,
 input[type="checkbox"] + label:before {
     font-family: Icons;
-    padding-right: 5px;
-    font-size: 20px;
+    padding-right: 0.25em;
+    font-size: 17px;
 }
 
 input[type="radio"] + label:before {
@@ -458,12 +449,12 @@ input[type="checkbox"]:checked + label:before {
 }
 
 .error-wrapper {
-    height: 1.5em;
+    height: 1.75em;
 }
 
 .error {
     width: 100%;
-    padding: 3px 5px;
+    padding: 0.2em 0.5em;
     color: white;
     background-color: @error;
     #rounded-corners;
