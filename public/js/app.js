@@ -1,4 +1,4 @@
-angular.module('logarithmic', ['ui.state', 'ngCookies']).config(function($stateProvider, $locationProvider, $httpProvider) {
+angular.module('logarithmic', ['ui.state', 'ngCookies']).config(function($routeProvider, $stateProvider, $locationProvider, $httpProvider) {
 
     $httpProvider.defaults.withCredentials = true;
     $locationProvider.hashPrefix('!'); // .html5Mode(true)
@@ -34,6 +34,9 @@ angular.module('logarithmic', ['ui.state', 'ngCookies']).config(function($stateP
 
     ['main', 'subscribe', 'pricing', 'landing', 'support',
         'dashboard'].forEach(function(page) {
+
+            //$routeProvider.when('/' + page, view(page, 'page'));
+
             $stateProvider
                 .state(page, {
                     url: "/" + page,

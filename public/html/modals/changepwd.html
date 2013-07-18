@@ -8,7 +8,7 @@
                ng-required="true"
                ng-model="model.oldPassword">
 
-        <error if="validation && form.oldPassword.$invalid">
+        <error if="form.$validation && form.oldPassword.$invalid">
             Enter your old password
         </error>
     </fieldset>
@@ -20,7 +20,7 @@
                ng-minlength="5"
                ng-model="model.newPassword">
 
-        <error if="validation && form.newPassword.$invalid">
+        <error if="form.$validation && form.newPassword.$invalid">
             Enter a password, 5 letters or more
         </error>
     </fieldset>
@@ -32,7 +32,7 @@
                valid-if-equals="password"
                ng-model="model.confirmPassword">
 
-        <error if="validation && password != confirmPassword">
+        <error if="form.$validation && password != confirmPassword">
             These passwords don't match
         </error>
     </fieldset>

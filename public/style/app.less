@@ -358,8 +358,12 @@ label {
     width: 100%;
 }
 
-.half input[type=text] {
-    width: 49%;
+.half {
+    width: 49% !important;
+}
+
+.half + .half {
+    margin-left: 2%;
 }
 
 input:focus, button:focus, select:focus {
@@ -438,9 +442,7 @@ input[type="checkbox"]:checked + label:before {
 }
 
 .icon-progress {
-    height: 20px;
-    background-color: reds;
-    vertical-align: middle;
+    height: 1em;
 }
 
 .icon-progress:before {

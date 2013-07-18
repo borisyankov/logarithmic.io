@@ -1,15 +1,15 @@
 <form name="form" method="POST"
       novalidate
       ng-submit="signup()">
-    <fieldset class="half">
+    <fieldset>
         <label for="first-name">Name</label>
-        <input id="first-name" type="text" name="firstName"
+        <input id="first-name" type="text" name="firstName" class="half"
                autofocus
                placeholder="First"
                ng-disabled="form.$progress"
                ng-required="true"
-               ng-model="model.firstName">
-        <input id="last-name" type="text" name="lastName"
+               ng-model="model.firstName"><!--
+     --><input id="last-name" type="text" name="lastName" class="half"
                placeholder="Last"
                ng-disabled="form.$progress"
                ng-required="true"
@@ -24,7 +24,7 @@
                ng-disabled="form.$progress"
                ng-required="true"
                ng-model="model.email">
-        <error if="validation && form.email.$invalid">
+        <error if="form.$validation && form.email.$invalid">
             Enter your email address
         </error>
     </fieldset>
@@ -35,7 +35,7 @@
                ng-required="true"
                ng-minlength="5"
                ng-model="model.password">
-        <error if="validation && form.password.$invalid">
+        <error if="form.$validation && form.password.$invalid">
             Enter a password, 5 letters or more
         </error>
     </fieldset>
@@ -47,7 +47,7 @@
                valid-if-equals="model.password"
                ng-model="model.confirmPassword">
 
-        <error if="validation && form.confirmPassword.$invalid">
+        <error if="form.$validation && form.confirmPassword.$invalid">
             These passwords don't match
         </error>
     </fieldset>

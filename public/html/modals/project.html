@@ -8,7 +8,7 @@
                ng-disabled="progress"
                ng-required="true"
                ng-model="model.name">
-        <error if="validation && form.name.$invalid">
+        <error if="form.$validation && form.name.$invalid">
             Your project needs a name
         </error>
     </fieldset>
