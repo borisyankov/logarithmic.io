@@ -1,4 +1,4 @@
-angular.module('logarithmic', ['ui.state', 'ngCookies']).config(function($routeProvider, $stateProvider, $locationProvider, $httpProvider) {
+angular.module('logarithmic', ['ui.state', 'ngCookies']).config(function($locationProvider, $stateProvider, $httpProvider) {
 
     $httpProvider.defaults.withCredentials = true;
     $locationProvider.hashPrefix('!'); // .html5Mode(true)
