@@ -2,3 +2,4 @@
 node_modules
 iisnode
 npm-debug.log
+build/output

@@ -1,0 +1,9 @@
+{
+    "name": "logarithmic-build",
+    "author": "Boris Yankov <borisyankov@google.com>",
+    "dependencies": {
+        "grunt": "0.4",
+        "grunt-contrib-uglify": "0.2",
+        "grunt-data-uri": "0.1"
+    }
+}
