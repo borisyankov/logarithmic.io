@@ -19,10 +19,6 @@
   src: url('fonts/aller.woff') format('woff');
 }
 @font-face {
-  font-family: Museo;
-  src: url('fonts/museo.woff') format('woff');
-}
-@font-face {
   font-family: Icons;
   src: url('fonts/icons.woff') format('woff');
 }
@@ -47,7 +43,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Museo, serif;
+  font-family: Aller, serif;
 }
 body {
   padding: 0;

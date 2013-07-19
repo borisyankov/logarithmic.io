@@ -8,8 +8,7 @@ module.exports = function(grunt) {
                 files: {
                     'output/lib.min.js': [
                         '../public/lib/angular.js',
-                        '../public/lib/angular-cookies.js',
-                        '../public/lib/angular-ui-router.js'
+                        '../public/lib/angular-*.js'
                     ]
                 }
             },
@@ -20,39 +19,67 @@ module.exports = function(grunt) {
                 files: {
                     'output/app.min.js': [
                         '../public/js/app.js',
-                        '../public/js/directives/error.js',
-                        '../public/js/directives/modal.js',
-                        '../public/js/directives/validIf.js',
-                        '../public/js/directives/validIfEquals.js',
-                        '../public/js/directives/buttonSubmit.js',
-                        '../public/js/directives/buttonCancel.js',
-                        '../public/js/api.js js/ctrl/signup.js',
-                        '../public/js/ctrl/account.js',
-                        '../public/js/ctrl/signup.js',
-                        '../public/js/ctrl/login.js',
-                        '../public/js/ctrl/project.js',
-                        '../public/js/ctrl/changepwd.js',
-                        '../public/js/ctrl/subscribe.js']
+                        '../public/js/directives/*.js',
+                        '../public/js/api.js',
+                        '../public/js/ctrl/*.js'
+                    ]
+                }
+            }
+        },
+        cssmin: {
+            combine: {
+                files: {
+                    'output/style.css': ['../public/style.css']
                 }
             }
         },
         concat: {
+            templates: {
+                options: {
+                    process: function(src, filepath) {
+                        return '<script type="text/ng-template" id="' + filepath.replace(/^.*[\\\/]/, '') + '">\n'
+                            + src + '\n'
+                            + '</script>';
+                    }
+                },
+                src: [
+                    '../public/html/pages/*.html',
+                    '../public/html/modals/*.html',
+                    '../public/html/templates/*.html'
+                ],
+                dest: 'output/templates.html'
+            },
+            indexhtml: {
+                src: [
+                    '../public/html/start.html',
+                    '../public/html/modal.html',
+                    '../public/html/body.html',
+                    'output/templates.html',
+                    'output/style.css',
+                    'output/lib.min.js',
+                    'output/app.min.js',
+                    '../public/html/end.html'
+                ],
+                dest: '../public/index.html'
+            }
+        },
+        preprocess: {
             options: {
-                process: function(src, filepath) {
-                    return '<script type="text/ng-template" id="' + filepath.replace(/^.*[\\\/]/, '') + '">\n'
-                        + src + '\n'
-                        + '</script>';
+                context: {
+                    DEBUG: true
                 }
             },
-            dist: {
-                src: ['../public/html/pages/*.html', '../public/html/modals/*.html', '../public/html/templates/*.html'],
-                dest: 'output/templates.html'
+            html: {
+                src: '../public/html/main.html',
+                dest: '../public/index.html'
             }
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-preprocess');
 
-    grunt.registerTask('default', ['uglify', 'concat']);
+    grunt.registerTask('default', ['uglify', 'cssmin', 'concat', 'preprocess']);
 };
