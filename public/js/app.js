@@ -6,9 +6,9 @@ function config($locationProvider, $stateProvider, $httpProvider) {
     $httpProvider.defaults.withCredentials = true;
     $locationProvider.hashPrefix('!'); // .html5Mode(true)
 
-    function view(name, type) {
+    function view(name) {
         return {
-            templateUrl: '/html/' + type + 's/' + name + '.html',
+            templateUrl: name + '.html',
             controller: name[0].toUpperCase() + name.slice(1) + 'Ctrl'
         }
     }
@@ -17,7 +17,7 @@ function config($locationProvider, $stateProvider, $httpProvider) {
         .state('index', {
             url: '',
             views: {
-                page: view('subscribe', 'page')
+                page: view('subscribe')
             }
         });
 
@@ -26,8 +26,8 @@ function config($locationProvider, $stateProvider, $httpProvider) {
             .state(modal, {
                 url: '/' + modal,
                 views: {
-                    page: view('dashboard', 'page'),
-                    modal: view(modal, 'modal')
+                    page: view('dashboard'),
+                    modal: view(modal)
                 },
                 onEnter: function($rootScope) {
                     $rootScope.modal = modal;
@@ -44,7 +44,7 @@ function config($locationProvider, $stateProvider, $httpProvider) {
                 .state(page, {
                     url: "/" + page,
                     views: {
-                        page: view(page, 'page')
+                        page: view(page)
                     },
                     onEnter: function($rootScope) {
                         $rootScope.modal = false;

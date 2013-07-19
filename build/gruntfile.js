@@ -35,11 +35,24 @@ module.exports = function(grunt) {
                         '../public/js/ctrl/subscribe.js']
                 }
             }
+        },
+        concat: {
+            options: {
+                process: function(src, filepath) {
+                    return '<script type="text/ng-template" id="' + filepath.replace(/^.*[\\\/]/, '') + '">\n'
+                        + src + '\n'
+                        + '</script>';
+                }
+            },
+            dist: {
+                src: ['../public/html/pages/*.html', '../public/html/modals/*.html', '../public/html/templates/*.html'],
+                dest: 'output/templates.html'
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
 
-    grunt.registerTask('default', ['uglify']);
+    grunt.registerTask('default', ['uglify', 'concat']);
 };

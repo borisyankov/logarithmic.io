@@ -2,7 +2,7 @@ angular.module('logarithmic').directive('buttonSubmit', function($q, $animator) 
     return {
         restrict: 'E',
         replace: true,
-        templateUrl: '/js/directives/templates/buttonSubmit.html',
+        templateUrl: 'buttonSubmit.html',
         transclude: true,
         scope: { form: '@' },
         link: function(scope, element, attrs) {

@@ -42,10 +42,452 @@
     Copyright &copy; 2013 <a href="http://www.moveta.com">moveta</a>
 </footer>
 
+<script type="text/ng-template" id="dashboard.html">
+<h2>
+    This is your main dashboard
+</h2>
+<article id="twoway">
+    <section class="wrapper">
+        <h3>Dashboard bitchezzzz</h3>
+
+        <p>
+            These two blocks of text will float side by side with some empty columns on the sides on large screens. On
+            medium-sized screens the empty columns will disappear, and on small screens the blocks will be stacked
+            vertically.
+        </p>
+    </section>
+    <section class="wrapper">
+        Loop
+    </section>
+</article>
+<article id="twoway">
+    <section class="wrapper">
+        <h3>Dashboard</h3>
+
+        <p>
+            These two blocks of text will float side by side with some empty columns on the sides on large screens. On
+            medium-sized screens the empty columns will disappear, and on small screens the blocks will be stacked
+            vertically.
+        </p>
+    </section>
+    <section class="wrapper">
+        Cool
+    </section>
+</article>
+</script>
+<script type="text/ng-template" id="landing.html">
+<h2>
+    Let’s use email
+    (and <strong>years</strong> of best practices)
+    to create a <strong>double-digit jump</strong>
+    in your conversion rate
+</h2>
+<article id="twoway">
+    <section class="wrapper">
+        <p>
+            Increase trials (and purchases) up to 30% by reconnecting with one-time visitors via email. Turn drive-by
+            visitors into customers using the most conversion-focused email platform ever built.
+        </p>
+    </section>
+    <section class="wrapper">
+        Drip is designed to provide a 5-10x return on your monthly investment. Spending one dollar to make ten seems
+        like a good idea to us.
+    </section>
+</article>
+</script>
+<script type="text/ng-template" id="main.html">
+<h2>
+    Error logging and analysis for your front-end with a single line of code.
+</h2>
+<article id="twoway">
+    <section class="wrapper">
+        <h3>Start like a pro</h3>
+
+        <p>
+            These two blocks of text will float side by side with some empty columns on the sides on large screens. On
+            medium-sized screens the empty columns will disappear, and on small screens the blocks will be stacked
+            vertically.
+        </p>
+    </section>
+    <section class="wrapper">
+        Loop
+    </section>
+</article>
+<article id="twoway">
+    <section class="wrapper">
+        <h3>Joining is easy</h3>
+
+        <p>
+            These two blocks of text will float side by side with some empty columns on the sides on large screens. On
+            medium-sized screens the empty columns will disappear, and on small screens the blocks will be stacked
+            vertically.
+        </p>
+    </section>
+    <section class="wrapper">
+        Cool
+    </section>
+</article>
+</script>
+<script type="text/ng-template" id="pricing.html">
+<h2>
+    Pricing
+</h2>
+<article id="twoway">
+    <section class="wrapper">
+        <h3>Solo</h3>
+
+        <p>
+            This will be free
+        </p>
+    </section>
+</article>
+<article id="twoway">
+    <section class="wrapper">
+        <h3>Startup</h3>
+
+        <p>
+            This will be cheap
+        </p>
+    </section>
+</article>
+<article id="twoway">
+    <section class="wrapper">
+        <h3>Successful</h3>
+
+        <p>
+            This will be reasonable
+        </p>
+    </section>
+</article>
+<article id="twoway">
+    <section class="wrapper">
+        <h3>Super</h3>
+
+        <p>
+            This will be expensive
+        </p>
+    </section>
+</article>
+</script>
+<script type="text/ng-template" id="subscribe.html">
+<h2>
+    Error logging and analysis for your front-end with a single line of code.
+</h2>
+<section class="subscribe-well" ng-switch on="step">
+    <form name="form" method="POST"
+          novalidate
+          ng-switch-when="1"
+          ng-submit="subscribe()">
+        <fieldset>
+            <input id="email" type="email" name="email"
+                   autofocus
+                   placeholder="Enter your email address"
+                   ng-disabled="form.$progress"
+                   ng-required="true"
+                   ng-model="email">
+            <button-submit>Notify Me</button-submit>
+        </fieldset>
+        We don't spam. And you can unsubscribe any time.
+    </form>
+    <div ng-switch-when="2">
+        Done!
+    </div>
+</section>
+</script>
+<script type="text/ng-template" id="support.html">
+<h2>
+    Support
+</h2>
+<article id="twoway">
+    <section class="wrapper">
+        <h3>Start like a pro</h3>
+
+        <p>
+            These two blocks of text will float side by side with some empty columns on the sides on large screens. On
+            medium-sized screens the empty columns will disappear, and on small screens the blocks will be stacked
+            vertically.
+        </p>
+    </section>
+    <section class="wrapper">
+        Loop
+    </section>
+</article>
+<article id="twoway">
+    <section class="wrapper">
+        <h3>Joining is easy</h3>
+
+        <p>
+            These two blocks of text will float side by side with some empty columns on the sides on large screens. On
+            medium-sized screens the empty columns will disappear, and on small screens the blocks will be stacked
+            vertically.
+        </p>
+    </section>
+    <section class="wrapper">
+        Cool
+    </section>
+</article>
+</script>
+<script type="text/ng-template" id="account.html">
+<form name="form" method="POST"
+      novalidate
+      ng-submit="ok()">
+    <fieldset class="half">
+        <label for="first-name">Name</label>
+        <input id="first-name" type="text" name="firstName"
+               autofocus placeholder="First"
+               ng-disabled="progress"
+               ng-required="true"
+               ng-model="firstName">
+        <input id="last-name" type="text" name="lastName"
+               placeholder="Last"
+               ng-disabled="progress"
+               ng-required="true"
+               ng-model="model.lastName">
+        <error if="form.$validation && (form.firstName.$invalid || form.lastName.$invalid)">
+            You can't leave this empty
+        </error>
+    </fieldset>
+    <fieldset>
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email"
+               autofocus
+               ng-disabled="progress"
+               ng-required="true"
+               ng-model="model.email">
+        <error if="form.$validation && form.email.$invalid">
+            Enter your email address
+        </error>
+    </fieldset>
+    <fieldset>
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password"
+               ng-disabled="progress"
+               ng-required="true"
+               ng-model="model.password">
+
+        <error if="validation && form.password.$invalid">
+            The username or password you entered is incorrect
+        </error>
+    </fieldset>
+    <button-submit>Save Changes</button-submit>
+    <button-cancel>Cancel</button-cancel>
+</form>
+</script>
+<script type="text/ng-template" id="changepwd.html">
+<form name="form" method="POST"
+      novalidate
+      ng-submit="ok()">
+    <fieldset>
+        <label for="oldPassword">Old Password</label>
+        <input id="oldPassword" type="password" name="oldPassword"
+               ng-disabled="progress"
+               ng-required="true"
+               ng-model="model.oldPassword">
+
+        <error if="form.$validation && form.oldPassword.$invalid">
+            Enter your old password
+        </error>
+    </fieldset>
+    <fieldset>
+        <label for="newPassword">New password</label>
+        <input id="newPassword" type="password" name="newPassword"
+               ng-disabled="progress"
+               ng-required="true"
+               ng-minlength="5"
+               ng-model="model.newPassword">
+
+        <error if="form.$validation && form.newPassword.$invalid">
+            Enter a password, 5 letters or more
+        </error>
+    </fieldset>
+    <fieldset>
+        <label for="comfirm-password">Confirm your password</label>
+        <input id="comfirm-password" type="password" name="confirmPassword"
+               ng-disabled="progress"
+               ng-required="true"
+               valid-if-equals="password"
+               ng-model="model.confirmPassword">
+
+        <error if="form.$validation && password != confirmPassword">
+            These passwords don't match
+        </error>
+    </fieldset>
+    <button-submit>Save Changes</button-submit>
+    <button-cancel>Cancel</button-cancel>
+</form>
+</script>
+<script type="text/ng-template" id="login.html">
+<form name="form" method="POST"
+      novalidate
+      ng-submit="login()">
+    <fieldset>
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email"
+               autofocus
+               ng-disabled="form.$progress"
+               ng-required="true"
+               ng-model="model.email">
+        <error if="form.$validation && form.email.$invalid">
+            Enter your email address
+        </error>
+    </fieldset>
+    <fieldset>
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password"
+               ng-disabled="form.$progress"
+               ng-required="true"
+               ng-minlength="5"
+               ng-model="model.password">
+
+        <error if="form.$validation && form.password.$invalid">
+            The username or password you entered is incorrect
+        </error>
+    </fieldset>
+    <div class="control-group">
+        <input id="remember" type="checkbox"
+               checked
+               ng-disabled="form.$progress"
+               ng-model="model.stayLoggedIn">
+        <label for="remember">Stay logged in</label>
+    </div>
+    <div class="control-group">
+        <button-submit>Log in</button-submit>
+        <button-cancel>Cancel</button-cancel>
+    </div>
+    <fieldset>
+        <a href>Forgot your password?</a>
+    </fieldset>
+    <fieldset>
+        New here? <a href="#!/signup">Create an Account</a>
+    </fieldset>
+</form>
+</script>
+<script type="text/ng-template" id="project.html">
+<form name="form" method="POST"
+      novalidate
+      ng-submit="ok()">
+    <fieldset>
+        <label for="name">Name</label>
+        <input id="name" type="text" name="name"
+               autofocus
+               ng-disabled="progress"
+               ng-required="true"
+               ng-model="model.name">
+        <error if="form.$validation && form.name.$invalid">
+            Your project needs a name
+        </error>
+    </fieldset>
+    <fieldset>
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password"
+               ng-disabled="progress"
+               ng-required="true"
+               ng-model="model.password">
+
+        <error if="validation && form.password.$invalid">
+            The username or password you entered is incorrect
+        </error>
+    </fieldset>
+    <fieldset>
+        <label for="options">Options</label>
+        <select id="options" ng-disabled="progress">
+            <option>One</option>
+            <option>Two</option>
+            <option>Three</option>
+        </select>
+        <error if="validation && form.password.$invalid">
+            The username or password you entered is incorrect
+        </error>
+    </fieldset>
+
+    <button-submit>Save Changes</button-submit>
+    <button-cancel>Cancel</button-cancel>
+</form>
+</script>
+<script type="text/ng-template" id="signup.html">
+<form name="form" method="POST"
+      novalidate
+      ng-submit="signup()">
+    <fieldset>
+        <label for="first-name">Name</label>
+        <input id="first-name" type="text" name="firstName" class="half"
+               autofocus
+               placeholder="First"
+               ng-disabled="form.$progress"
+               ng-required="true"
+               ng-model="model.firstName"><!--
+     --><input id="last-name" type="text" name="lastName" class="half"
+               placeholder="Last"
+               ng-disabled="form.$progress"
+               ng-required="true"
+               ng-model="model.lastName">
+        <error if="validation && (form.firstName.$invalid || form.lastName.$invalid)">
+            You can't leave this empty
+        </error>
+    </fieldset>
+    <fieldset>
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email"
+               ng-disabled="form.$progress"
+               ng-required="true"
+               ng-model="model.email">
+        <error if="form.$validation && form.email.$invalid">
+            Enter your email address
+        </error>
+    </fieldset>
+    <fieldset>
+        <label for="password">Create a password</label>
+        <input id="password" type="password" name="password"
+               ng-disabled="form.$progress"
+               ng-required="true"
+               ng-minlength="5"
+               ng-model="model.password">
+        <error if="form.$validation && form.password.$invalid">
+            Enter a password, 5 letters or more
+        </error>
+    </fieldset>
+    <fieldset>
+        <label for="comfirm-password">Confirm your password</label>
+        <input id="comfirm-password" type="password" name="confirmPassword"
+               ng-required="true"
+               ng-disabled="form.$progress"
+               valid-if-equals="model.password"
+               ng-model="model.confirmPassword">
+
+        <error if="form.$validation && form.confirmPassword.$invalid">
+            These passwords don't match
+        </error>
+    </fieldset>
+    <div class="control-group">
+        <input id="subscribe" type="checkbox"
+               ng-disabled="form.$progress"
+               ng-model="model.subscribe">
+        <label for="subscribe">Subscribe to Getting Started Emails</label>
+    </div>
+    <div class="control-group">
+        <button-submit>Sign up now</button-submit>
+        <button-cancel>Cancel</button-cancel>
+    </div>
+    <fieldset>
+        Already have an account? <a href="#!/login">Log in</a>
+    </fieldset>
+</form>
+</script>
+<script type="text/ng-template" id="buttonSubmit.html">
+<button class="default animated"
+        ng-animate="{ invalid: 'shake' }"
+        ng-click="click()">
+    <div class="spinner icon-progress" ng-show="$parent.form.$progress">
+        <div class=""></div>
+    </div>
+    <span ng-hide="$parent.form.$progress" ng-transclude></span>
+</button>
+</script>
+
 <script src="/lib.min.js" type="text/javascript"></script>
 <script src="/app.min.js" type="text/javascript"></script>
 
-<!--
+
 <script src="/lib/angular.js" type="text/javascript"></script>
 <script src="/lib/angular.js" type="text/javascript"></script>
 <script src="/lib/angular-cookies.js" type="text/javascript"></script>
@@ -68,8 +510,7 @@
 <script src="/js/ctrl/login.js" type="text/javascript"></script>
 <script src="/js/ctrl/project.js" type="text/javascript"></script>
 <script src="/js/ctrl/changepwd.js" type="text/javascript"></script>
-<script src="/js/ctrl/subscribe.js" type="text/javascript"></script>-->
-
+<script src="/js/ctrl/subscribe.js" type="text/javascript"></script>
 
 
 </body>
