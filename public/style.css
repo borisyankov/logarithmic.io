@@ -16,15 +16,15 @@
 /* Globals ************************************************/
 @font-face {
   font-family: Aller;
-  src: url('../fonts/aller.woff') format('woff');
+  src: url('fonts/aller.woff') format('woff');
 }
 @font-face {
   font-family: Museo;
-  src: url('../fonts/museo.woff') format('woff');
+  src: url('fonts/museo.woff') format('woff');
 }
 @font-face {
   font-family: Icons;
-  src: url('../fonts/icons.woff') format('woff');
+  src: url('fonts/icons.woff') format('woff');
 }
 *,
 *:after,

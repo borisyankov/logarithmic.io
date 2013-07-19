@@ -41,5 +41,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-data-uri');
 
-    grunt.registerTask('default', ['dataUri']);
+    grunt.registerTask('default', ['uglify']);
 };
