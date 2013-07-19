@@ -1,4 +1,7 @@
-angular.module('logarithmic', ['ui.state', 'ngCookies']).config(function($locationProvider, $stateProvider, $httpProvider) {
+angular.module('logarithmic', ['ui.state', 'ngCookies'])
+    .config(['$locationProvider', '$stateProvider', '$httpProvider', config]);
+
+function config($locationProvider, $stateProvider, $httpProvider) {
 
     $httpProvider.defaults.withCredentials = true;
     $locationProvider.hashPrefix('!'); // .html5Mode(true)
@@ -48,7 +51,7 @@ angular.module('logarithmic', ['ui.state', 'ngCookies']).config(function($locati
                     }
                 });
         });
-});
+}
 
 function MainCtrl() {
 }
