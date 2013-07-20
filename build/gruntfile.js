@@ -1,6 +1,7 @@
 module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        clean: ['output'],
         uglify: {
             lib: {
                 options: {
@@ -29,45 +30,39 @@ module.exports = function(grunt) {
         cssmin: {
             combine: {
                 files: {
-                    'output/style.css': ['../public/style.css']
+                    'output/style.min.css': ['../public/style.css']
                 }
             }
         },
         concat: {
-            templates: {
-                options: {
-                    process: function(src, filepath) {
-                        return '<script type="text/ng-template" id="' + filepath.replace(/^.*[\\\/]/, '') + '">\n'
-                            + src + '\n'
-                            + '</script>';
-                    }
-                },
+            options: {
+                process: function(src, filepath) {
+                    return '<script type="text/ng-template" id="' + filepath.replace(/^.*[\\\/]/, '') + '">\n'
+                        + src + '\n'
+                        + '</script>';
+                }
+            },
+            dist: {
                 src: [
                     '../public/html/pages/*.html',
                     '../public/html/modals/*.html',
                     '../public/html/templates/*.html'
                 ],
                 dest: 'output/templates.html'
-            },
-            indexhtml: {
-                src: [
-                    '../public/html/start.html',
-                    '../public/html/modal.html',
-                    '../public/html/body.html',
-                    'output/templates.html',
-                    'output/style.css',
-                    'output/lib.min.js',
-                    'output/app.min.js',
-                    '../public/html/end.html'
-                ],
-                dest: '../public/index.html'
+            }
+        },
+        webfont: {
+            icons: {
+                src: '../assets/icons/*.svg',
+                dest: 'output/fonts',
+                options: {
+                    types: 'woff',
+                    embed: true
+                }
             }
         },
         preprocess: {
             options: {
-                context: {
-                    DEBUG: true
-                }
             },
             html: {
                 src: '../public/html/main.html',
@@ -76,10 +71,19 @@ module.exports = function(grunt) {
         }
     });
 
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-webfont');
     grunt.loadNpmTasks('grunt-preprocess');
 
-    grunt.registerTask('default', ['uglify', 'cssmin', 'concat', 'preprocess']);
+    grunt.registerTask('default', [
+        'clean',
+        'uglify',
+        'cssmin',
+        'concat',
+        'preprocess'
+    ]);
+    grunt.registerTask('font', ['webfont']);
 };
