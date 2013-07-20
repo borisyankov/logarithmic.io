@@ -4,8 +4,6 @@ module.exports = function(grunt) {
         clean: ['output'],
         uglify: {
             lib: {
-                options: {
-                },
                 files: {
                     'output/lib.min.js': [
                         '../public/lib/angular.js',
@@ -62,11 +60,45 @@ module.exports = function(grunt) {
             }
         },
         preprocess: {
-            options: {
-            },
-            html: {
+            production: {
                 src: '../public/html/main.html',
                 dest: '../public/index.html'
+            },
+            dev: {
+                options: {
+                    context: {
+                        DEV: true
+                    }
+                },
+                src: '../public/html/main.html',
+                dest: '../public/index.html'
+            }
+        },
+        htmlmin: {
+            templates: {
+                options: {
+                    removeComments: true,
+                    collapseWhitespace: true
+                },
+                src: [
+                    '../public/html/pages/*.html',
+                    '../public/html/modals/*.html',
+                    '../public/html/templates/*.html'
+                ],
+                dest: 'output/templates'
+            }
+        },
+        watch: {
+            scripts: {
+                files: [
+                    '../public/html/pages/*.html',
+                    '../public/html/modals/*.html',
+                    '../public/html/templates/*.html'
+                ],
+                tasks: ['concat', 'preprocess:dev'],
+                options: {
+                    interrupt: true
+                }
             }
         }
     });
@@ -75,15 +107,21 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-webfont');
     grunt.loadNpmTasks('grunt-preprocess');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('default', [
         'clean',
         'uglify',
         'cssmin',
         'concat',
-        'preprocess'
+        'preprocess:production'
+    ]);
+    grunt.registerTask('dev', [
+        'preprocess:dev',
+        'watch'
     ]);
     grunt.registerTask('font', ['webfont']);
 };
