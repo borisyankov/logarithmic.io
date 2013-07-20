@@ -282,7 +282,7 @@ footer {
   -webkit-perspective: 1300px;
   perspective: 1300px;
 }
-.modal-content-hide {
+.modal-hide {
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   -webkit-transform: rotateX(-70deg);
@@ -292,7 +292,7 @@ footer {
   transition: all 0.3s;
   opacity: 0;
 }
-.md-content-show {
+.md-show {
   -webkit-transform: rotateX(0deg);
   -moz-transform: rotateX(0deg);
   -ms-transform: rotateX(0deg);

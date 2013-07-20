@@ -18,6 +18,11 @@ angular.module('logarithmic').controller('SignupCtrl', function($scope, $state, 
         api.signup($scope.model).then(function() {
             $scope.form.$progress.resolve();
             $scope.form.$progress = undefined;
+        }, function() {
+            $scope.form.email.$exists = true;
+            $scope.form.$setValidity('email', false);
+            $scope.form.$validation = true;
+            $scope.form.$progress = undefined;
         });
     }
 });

@@ -433,8 +433,11 @@
                ng-disabled="form.$progress"
                ng-required="true"
                ng-model="model.email">
-        <error if="form.$validation && form.email.$invalid">
-            Enter your email address
+        <error if="form.$validation && (form.email.$invalid || form.email.$exists)">
+            <span ng-show="form.$validation && form.email.$invalid">
+            Enter your email address</span>
+        <span ng-show="form.$validation && form.email.$exists">
+            This email is already registered</span>
         </error>
     </fieldset>
     <fieldset>
