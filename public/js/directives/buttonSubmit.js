@@ -13,10 +13,13 @@ angular.module('logarithmic').directive('buttonSubmit', function($q, $animator) 
                     animator = $animator(scope, attrs);
 
                 form.$validation = true;
-
+                console.log('yo');
                 if (form.$invalid || form.$progress) {
                     animator.animate('invalid', element);
+                    console.log('animate');
                 } else {
+                    console.log('ok called');
+
                     form.$progress = $q.defer();
 
                     scope.$eval(attrs.ok);

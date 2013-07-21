@@ -91,6 +91,7 @@ module.exports = function(grunt) {
         watch: {
             scripts: {
                 files: [
+                    '../public/html/*.html',
                     '../public/html/pages/*.html',
                     '../public/html/modals/*.html',
                     '../public/html/templates/*.html'

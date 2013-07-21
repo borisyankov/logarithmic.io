@@ -1,6 +1,6 @@
 <form name="form" method="POST"
       novalidate
-      ng-submit="signup()">
+      ng-submit="form.$valid && signup()">
     <fieldset>
         <label for="first-name">Name</label>
         <input id="first-name" type="text" name="firstName" class="half"
@@ -14,7 +14,8 @@
                ng-disabled="form.$progress"
                ng-required="true"
                ng-model="model.lastName">
-        <error if="validation && (form.firstName.$invalid || form.lastName.$invalid)">
+        <error if="form.$validation && (form.firstName.$invalid || form.lastName.$invalid)">
+
             You can't leave this empty
         </error>
     </fieldset>
@@ -25,10 +26,12 @@
                ng-required="true"
                ng-model="model.email">
         <error if="form.$validation && (form.email.$invalid || form.email.$exists)">
-            <span ng-show="form.$validation && form.email.$invalid">
-            Enter your email address</span>
-        <span ng-show="form.$validation && form.email.$exists">
-            This email is already registered</span>
+            <span ng-show="form.email.$error.required">
+                Enter your email address
+            </span>
+            <span ng-show="form.email.$error.exists">
+                This email is already registered
+            </span>
         </error>
     </fieldset>
     <fieldset>

@@ -1,6 +1,6 @@
 <form name="form" method="POST"
       novalidate
-      ng-submit="login()">
+      ng-submit="form.$valid && login()">
     <fieldset>
         <label for="email">Email</label>
         <input id="email" type="email" name="email"
@@ -21,7 +21,13 @@
                ng-model="model.password">
 
         <error if="form.$validation && form.password.$invalid">
-            The username or password you entered is incorrect
+            <span ng-show="form.password.$error.required">Password is required</span>
+            <span ng-show="form.password.$error.minlength && !form.password.$error.required">
+                Passwords are more than 5 symbols
+            </span>
+            <span ng-show="form.password.$error.incorrect">
+                The username or password is incorrect
+            </span>
         </error>
     </fieldset>
     <div class="control-group">

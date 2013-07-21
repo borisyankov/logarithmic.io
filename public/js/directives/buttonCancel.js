@@ -1,4 +1,4 @@
-angular.module('logarithmic').directive('buttonCancel', function($q, $animator) {
+angular.module('logarithmic').directive('buttonCancel', function($rootScope, $animator) {
     return {
         restrict: 'E',
         replace: true,
@@ -17,7 +17,7 @@ angular.module('logarithmic').directive('buttonCancel', function($q, $animator) 
                     form.$progress.reject();
                     form.$progress = undefined;
                 } else {
-                    // close modal
+                    $rootScope.modal = false;//undefined;
                     //$state.views.modal = ''; hide modal
                 }
             }

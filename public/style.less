@@ -193,6 +193,8 @@ footer {
 
 /* Animation ****************************/
 
+/* spinner */
+
 .spinner {
     -moz-animation: spin 1s infinite linear;
     -webkit-animation: spin 1s infinite linear;
@@ -226,8 +228,10 @@ footer {
     }
 }
 
+/* fade */
+
 .fade-hide, .fade-show {
-    transition: all linear 0.5s;
+    transition: all linear 0.3s;
 }
 
 .fade-show.fade-show-active,
@@ -240,33 +244,17 @@ footer {
     opacity: 0;
 }
 
-.animated {
-    -webkit-animation-fill-mode: both;
-    -moz-animation-fill-mode: both;
-    -ms-animation-fill-mode: both;
-    animation-fill-mode: both;
-    -webkit-animation-duration: 0.5s;
-    -moz-animation-duration: 0.5s;
-    -ms-animation-duration: 0.5s;
-    animation-duration: 0.5s;
-}
-
-.animated.hinge {
-    -webkit-animation-duration: 1s;
-    -moz-animation-duration: 1s;
-    -ms-animation-duration: 1s;
-    animation-duration: 1s;
-}
+/* shake */
 
 @-webkit-keyframes shake {
     0%, 100% {
         -webkit-transform: translateX(0);
     }
     10%, 30%, 50%, 70%, 90% {
-        -webkit-transform: translateX(-10px);
+        -webkit-transform: translateX(-0.5em);
     }
     20%, 40%, 60%, 80% {
-        -webkit-transform: translateX(10px);
+        -webkit-transform: translateX(0.5em);
     }
 }
 
@@ -275,10 +263,10 @@ footer {
         -moz-transform: translateX(0);
     }
     10%, 30%, 50%, 70%, 90% {
-        -moz-transform: translateX(-10px);
+        -moz-transform: translateX(-0.5em);
     }
     20%, 40%, 60%, 80% {
-        -moz-transform: translateX(10px);
+        -moz-transform: translateX(0.5em);
     }
 }
 
@@ -287,18 +275,20 @@ footer {
         transform: translateX(0);
     }
     10%, 30%, 50%, 70%, 90% {
-        transform: translateX(-10px);
+        transform: translateX(-0.5em);
     }
     20%, 40%, 60%, 80% {
-        transform: translateX(10px);
+        transform: translateX(0.5em);
     }
 }
 
 .shake {
-    -webkit-animation-name: shake;
-    -moz-animation-name: shake;
-    animation-name: shake;
+    -moz-animation: shake 0.3s;
+    -webkit-animation: shake 0.3s;
+    animation: shake 0.3s;
 }
+
+/* vertical swap */
 
 .modal-show {
     -webkit-perspective: 1300px;

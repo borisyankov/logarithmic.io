@@ -15,8 +15,12 @@ angular.module('logarithmic').controller('LoginCtrl', function($scope, api, $coo
     $scope.login = function() {
         console.log('called');
         api.login($scope.model).then(function() {
-            console.log('logged in or not?');
-            $scope.progress = false;
+            $scope.form.$progress.resolve();
+            $scope.form.$progress = undefined;
+        }, function() {
+            $scope.form.password.$setValidity('incorrect', false);
+            $scope.form.$validation = true;
+            $scope.form.$progress = undefined;
         });
     }
 });

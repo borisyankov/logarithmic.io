@@ -14,7 +14,7 @@
 <body>
 
 <div class="overlay" style="display: none"
-     ng-animate="modal" ng-show="modal">
+     ng-show="modal" ng-animate="'fade'" >
     <div class="modal">
         <h2 class="modal-title">{{modal}}</h2>
 
@@ -232,7 +232,7 @@
 <script type="text/ng-template" id="account.html">
 <form name="form" method="POST"
       novalidate
-      ng-submit="ok()">
+      ng-submit="form.$valid && ok()">
     <fieldset class="half">
         <label for="first-name">Name</label>
         <input id="first-name" type="text" name="firstName"
@@ -278,7 +278,7 @@
 <script type="text/ng-template" id="changepwd.html">
 <form name="form" method="POST"
       novalidate
-      ng-submit="ok()">
+      ng-submit="form.$valid && ok()">
     <fieldset>
         <label for="oldPassword">Old Password</label>
         <input id="oldPassword" type="password" name="oldPassword"
@@ -321,7 +321,7 @@
 <script type="text/ng-template" id="login.html">
 <form name="form" method="POST"
       novalidate
-      ng-submit="login()">
+      ng-submit="form.$valid && login()">
     <fieldset>
         <label for="email">Email</label>
         <input id="email" type="email" name="email"
@@ -342,7 +342,13 @@
                ng-model="model.password">
 
         <error if="form.$validation && form.password.$invalid">
-            The username or password you entered is incorrect
+            <span ng-show="form.password.$error.required">Password is required</span>
+            <span ng-show="form.password.$error.minlength && !form.password.$error.required">
+                Passwords are more than 5 symbols
+            </span>
+            <span ng-show="form.password.$error.incorrect">
+                The username or password is incorrect
+            </span>
         </error>
     </fieldset>
     <div class="control-group">
@@ -367,7 +373,7 @@
 <script type="text/ng-template" id="project.html">
 <form name="form" method="POST"
       novalidate
-      ng-submit="ok()">
+      ng-submit="form.$valid && ok()">
     <fieldset>
         <label for="name">Name</label>
         <input id="name" type="text" name="name"
@@ -409,7 +415,7 @@
 <script type="text/ng-template" id="signup.html">
 <form name="form" method="POST"
       novalidate
-      ng-submit="signup()">
+      ng-submit="form.$valid && signup()">
     <fieldset>
         <label for="first-name">Name</label>
         <input id="first-name" type="text" name="firstName" class="half"
@@ -423,7 +429,8 @@
                ng-disabled="form.$progress"
                ng-required="true"
                ng-model="model.lastName">
-        <error if="validation && (form.firstName.$invalid || form.lastName.$invalid)">
+        <error if="form.$validation && (form.firstName.$invalid || form.lastName.$invalid)">
+
             You can't leave this empty
         </error>
     </fieldset>
@@ -434,10 +441,12 @@
                ng-required="true"
                ng-model="model.email">
         <error if="form.$validation && (form.email.$invalid || form.email.$exists)">
-            <span ng-show="form.$validation && form.email.$invalid">
-            Enter your email address</span>
-        <span ng-show="form.$validation && form.email.$exists">
-            This email is already registered</span>
+            <span ng-show="form.email.$error.required">
+                Enter your email address
+            </span>
+            <span ng-show="form.email.$error.exists">
+                This email is already registered
+            </span>
         </error>
     </fieldset>
     <fieldset>
@@ -479,7 +488,7 @@
 </form>
 </script>
 <script type="text/ng-template" id="buttonSubmit.html">
-<button class="default animated"
+<button class="default"
         ng-animate="{ invalid: 'shake' }"
         ng-click="click()">
     <div class="spinner icon-progress" ng-show="$parent.form.$progress">

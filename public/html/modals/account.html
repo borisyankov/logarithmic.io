@@ -1,6 +1,6 @@
 <form name="form" method="POST"
       novalidate
-      ng-submit="ok()">
+      ng-submit="form.$valid && ok()">
     <fieldset class="half">
         <label for="first-name">Name</label>
         <input id="first-name" type="text" name="firstName"
