@@ -14,9 +14,9 @@
 <body>
 
 <div class="overlay" style="display: none"
-     ng-show="modal" ng-animate="'fade'" >
+     ng-show="modal.visible" ng-animate="'fade'" >
     <div class="modal">
-        <h2 class="modal-title">{{modal}}</h2>
+        <h2 class="modal-title">{{modal.name}}</h2>
 
         <div class="modal-content">
             <div ui-view="modal"></div>
@@ -31,8 +31,9 @@
             <li><a href="#!/features">Features</a></li>
             <li><a href="#!/pricing">Pricing</a></li>
             <li><a href="#!/support">Support</a></li>
-            <li><a href="#!/signup">Sign Up</a></li>
-            <li><a href="#!/login">Log In</a></li>
+            <li ng-hide="user"><a href="#!/signup">Sign Up</a></li>
+            <li ng-hide="user"><a href="#!/login">Log In</a></li>
+            <li ng-show="user"><a href="#!/logout">Log Out</a></li>
         </ul>
     </nav>
     </div>
@@ -359,15 +360,15 @@
         <label for="remember">Stay logged in</label>
     </div>
     <div class="control-group">
+        <a href>Forgot your password?</a>
+        <!--        <fieldset>
+                    New here? <a href="#!/signup">Create an Account</a>
+                </fieldset>-->
+    </div>
+    <div class="button-group">
         <button-submit>Log in</button-submit>
         <button-cancel>Cancel</button-cancel>
     </div>
-    <fieldset>
-        <a href>Forgot your password?</a>
-    </fieldset>
-    <fieldset>
-        New here? <a href="#!/signup">Create an Account</a>
-    </fieldset>
 </form>
 </script>
 <script type="text/ng-template" id="project.html">
@@ -477,14 +478,14 @@
                ng-disabled="form.$progress"
                ng-model="model.subscribe">
         <label for="subscribe">Subscribe to Getting Started Emails</label>
+<!--        <p>
+            Already have an account? <a href="#!/login">Log in</a>
+        </p>-->
     </div>
-    <div class="control-group">
+    <div class="button-group">
         <button-submit>Sign up now</button-submit>
         <button-cancel>Cancel</button-cancel>
     </div>
-    <fieldset>
-        Already have an account? <a href="#!/login">Log in</a>
-    </fieldset>
 </form>
 </script>
 <script type="text/ng-template" id="buttonSubmit.html">

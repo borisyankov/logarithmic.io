@@ -1,7 +1,7 @@
 <div class="overlay" style="display: none"
-     ng-show="modal" ng-animate="'fade'" >
+     ng-show="modal.visible" ng-animate="'fade'" >
     <div class="modal">
-        <h2 class="modal-title">{{modal}}</h2>
+        <h2 class="modal-title">{{modal.name}}</h2>
 
         <div class="modal-content">
             <div ui-view="modal"></div>

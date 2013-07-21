@@ -6,6 +6,16 @@ function config($locationProvider, $stateProvider, $httpProvider) {
     $httpProvider.defaults.withCredentials = true;
     $locationProvider.hashPrefix('!'); // .html5Mode(true)
 
+
+    var modals = [
+            { name: 'Account', template: 'account' },
+            { name: 'Change Password', template: 'changepwd' },
+            { name: 'Login', template: 'login' },
+            { name: 'Project', template: 'project' },
+            { name: 'Signup', template: 'signup' }
+        ],
+        pages = ['main', 'subscribe', 'pricing', 'landing', 'support', 'dashboard'];
+
     function view(name) {
         return {
             templateUrl: name + '.html',
@@ -21,36 +31,37 @@ function config($locationProvider, $stateProvider, $httpProvider) {
             }
         });
 
-    ['account', 'changepwd', 'login', 'project', 'signup'].forEach(function(modal) {
+    modals.forEach(function(modal) {
         $stateProvider
-            .state(modal, {
-                url: '/' + modal,
+            .state(modal.template, {
+                url: '/' + modal.template,
                 views: {
                     page: view('dashboard'),
-                    modal: view(modal)
+                    modal: view(modal.template)
                 },
                 onEnter: function($rootScope) {
                     $rootScope.modal = modal;
+                    $rootScope.modal.visible = true;
+
                 }
             });
     });
 
-    ['main', 'subscribe', 'pricing', 'landing', 'support',
-        'dashboard'].forEach(function(page) {
+    pages.forEach(function(page) {
 
-            //$routeProvider.when('/' + page, view(page, 'page'));
+        //$routeProvider.when('/' + page, view(page, 'page'));
 
-            $stateProvider
-                .state(page, {
-                    url: "/" + page,
-                    views: {
-                        page: view(page)
-                    },
-                    onEnter: function($rootScope) {
-                        $rootScope.modal = false;
-                    }
-                });
-        });
+        $stateProvider
+            .state(page, {
+                url: "/" + page,
+                views: {
+                    page: view(page)
+                },
+                onEnter: function($rootScope) {
+                    $rootScope.modal = false;
+                }
+            });
+    });
 }
 
 function MainCtrl() {
