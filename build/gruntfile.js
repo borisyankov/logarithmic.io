@@ -26,10 +26,13 @@ module.exports = function(grunt) {
                 }
             }
         },
-        cssmin: {
-            combine: {
+        less: {
+            compile: {
+                options: {
+                    yuicompress: true
+                },
                 files: {
-                    'output/style.min.css': ['../public/style.css']
+                    'output/style.min.css': ['../public/style.less']
                 }
             }
         },
@@ -108,7 +111,7 @@ module.exports = function(grunt) {
                     '../public/lib/*.js',
                     '../public/js/**/*.js'
                 ],
-                tasks: ['uglify', 'preprocess:dev'],
+                tasks: ['uglify', 'less', 'preprocess:dev'],
                 options: {
                     interrupt: true
                 }
@@ -120,6 +123,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-webfont');
     grunt.loadNpmTasks('grunt-preprocess');
@@ -128,12 +132,13 @@ module.exports = function(grunt) {
     grunt.registerTask('default', [
         'clean',
         'uglify',
-        'cssmin',
+        'less',
         'concat',
         'preprocess:production'
     ]);
     grunt.registerTask('dev', [
         'preprocess:dev',
+        'less',
         'watch'
     ]);
     grunt.registerTask('font', ['webfont']);
