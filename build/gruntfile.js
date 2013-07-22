@@ -89,14 +89,25 @@ module.exports = function(grunt) {
             }
         },
         watch: {
-            scripts: {
+            htmls: {
                 files: [
+                    '../public/style.css',
                     '../public/html/*.html',
                     '../public/html/pages/*.html',
                     '../public/html/modals/*.html',
                     '../public/html/templates/*.html'
                 ],
                 tasks: ['concat', 'preprocess:dev'],
+                options: {
+                    interrupt: true
+                }
+            },
+            scripts: {
+                files: [
+                    '../public/lib/*.js',
+                    '../public/js/*.js'
+                ],
+                tasks: ['uglify', 'preprocess:dev'],
                 options: {
                     interrupt: true
                 }
