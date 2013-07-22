@@ -1,4 +1,4 @@
-angular.module('logarithmic').controller('SignupCtrl', function($scope, $state, api) {
+angular.module('logarithmic').controller('SignupCtrl', function($scope, api) {
 
     $scope.model = {
         firstName: 'Boris',

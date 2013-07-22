@@ -1,4 +1,4 @@
-angular.module('logarithmic').directive('buttonCancel', function($rootScope, $animator, $window) {
+angular.module('logarithmic').directive('buttonCancel', function($location) {
     return {
         restrict: 'E',
         replace: true,
@@ -16,7 +16,8 @@ angular.module('logarithmic').directive('buttonCancel', function($rootScope, $an
                     form.$progress.reject();
                     form.$progress = undefined;
                 } else {
-                    $window.history.back();
+                    delete $location.$$search.m;
+                    $location.path($location.$$path);
                 }
             }
         }

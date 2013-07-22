@@ -18,9 +18,10 @@ module.exports = function(grunt) {
                 files: {
                     'output/app.min.js': [
                         '../public/js/app.js',
-                        '../public/js/directives/*.js',
                         '../public/js/api.js',
-                        '../public/js/ctrl/*.js'
+                        '../public/js/directives/*.js',
+                        '../public/js/ctrl/*.js',
+                        '../public/js/services/*.js'
                     ]
                 }
             }
@@ -105,7 +106,7 @@ module.exports = function(grunt) {
             scripts: {
                 files: [
                     '../public/lib/*.js',
-                    '../public/js/*.js'
+                    '../public/js/**/*.js'
                 ],
                 tasks: ['uglify', 'preprocess:dev'],
                 options: {

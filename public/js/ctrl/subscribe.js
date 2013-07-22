@@ -1,4 +1,4 @@
-angular.module('logarithmic').controller('SubscribeCtrl', function($scope, $state, api) {
+angular.module('logarithmic').controller('SubscribeCtrl', function($scope, api) {
 
     $scope.step = 1;
 
