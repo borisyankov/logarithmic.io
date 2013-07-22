@@ -6,7 +6,14 @@ module.exports = function (app, express) {
         app.use(express.bodyParser());
         app.use(express.cookieParser());
 
-        app.use(express.static(__dirname + '/../public/'));
+        app.use('/lib', express.static(__dirname + '/../public/lib'));
+        app.use('/js', express.static(__dirname + '/../public/js'));
+        //app.use(express.static(__dirname + '/../public/'));
+
+        app.all('/*', function(req, res) {
+            res.sendfile('index.html', { root: __dirname + '/../public/' });
+        });
+
 
         app.use(express.errorHandler({
             dumpExceptions: true,

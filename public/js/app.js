@@ -4,7 +4,7 @@ angular.module('logarithmic', ['ui.state', 'ngCookies'])
 function config($locationProvider, $stateProvider, $httpProvider) {
 
     $httpProvider.defaults.withCredentials = true;
-    $locationProvider.hashPrefix('!'); // .html5Mode(true)
+    $locationProvider.html5Mode(true); //hashPrefix('!'); //
 
 
     var modals = [
@@ -23,33 +23,7 @@ function config($locationProvider, $stateProvider, $httpProvider) {
         }
     }
 
-    $stateProvider
-        .state('index', {
-            url: '',
-            views: {
-                page: view('subscribe')
-            }
-        });
-
-    modals.forEach(function(modal) {
-        $stateProvider
-            .state(modal.template, {
-                url: '/' + modal.template,
-                views: {
-                    page: view('dashboard'),
-                    modal: view(modal.template)
-                },
-                onEnter: function($rootScope) {
-                    $rootScope.modal = modal;
-                    $rootScope.modal.visible = true;
-
-                }
-            });
-    });
-
     pages.forEach(function(page) {
-
-        //$routeProvider.when('/' + page, view(page, 'page'));
 
         $stateProvider
             .state(page, {
@@ -62,6 +36,44 @@ function config($locationProvider, $stateProvider, $httpProvider) {
                 }
             });
     });
+
+/*    $stateProvider
+        .state('all', {
+            url: '/:page/:modal',
+            onEnter: function(page, modal) {
+                console.log(page, '--', modal);
+            }
+        });*/
+/*
+
+    modals.forEach(function(modal) {
+        $stateProvider
+            .state(modal.template, {
+                url: '/' + modal.template,
+                views: {
+                    page: view('dashboard'),
+                    modal: view(modal.template)
+                },
+                onEnter: function($rootScope) {
+                    $rootScope.modal = modal;
+                    $rootScope.modal.visible = true;
+                }
+            });
+    });
+
+    pages.forEach(function(page) {
+
+        $stateProvider
+            .state(page, {
+                url: "/" + page,
+                views: {
+                    page: view(page)
+                },
+                onEnter: function($rootScope) {
+                    $rootScope.modal = false;
+                }
+            });
+    });*/
 }
 
 function MainCtrl() {

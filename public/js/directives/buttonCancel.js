@@ -13,12 +13,10 @@ angular.module('logarithmic').directive('buttonCancel', function($rootScope, $an
                 event.preventDefault();
 
                 if (form.$progress) {
-                    // cancel promise
                     form.$progress.reject();
                     form.$progress = undefined;
                 } else {
-                    $rootScope.modal = false;//undefined;
-                    //$state.views.modal = ''; hide modal
+                    window.history.back();
                 }
             }
         }
