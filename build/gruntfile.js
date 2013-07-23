@@ -12,9 +12,7 @@ module.exports = function(grunt) {
                 }
             },
             app: {
-                options: {
-                    mangle: false
-                },
+                options: { mangle: false },
                 files: {
                     'output/app.min.js': [
                         '../public/js/app.js',
@@ -28,9 +26,7 @@ module.exports = function(grunt) {
         },
         less: {
             compile: {
-                options: {
-                    yuicompress: true
-                },
+                options: { yuicompress: true },
                 files: {
                     'output/style.min.css': ['../public/style.less']
                 }
@@ -95,16 +91,13 @@ module.exports = function(grunt) {
         watch: {
             htmls: {
                 files: [
-                    '../public/style.css',
                     '../public/html/*.html',
                     '../public/html/pages/*.html',
                     '../public/html/modals/*.html',
                     '../public/html/templates/*.html'
                 ],
                 tasks: ['concat', 'preprocess:dev'],
-                options: {
-                    interrupt: true
-                }
+                options: { interrupt: true }
             },
             scripts: {
                 files: [
@@ -112,9 +105,12 @@ module.exports = function(grunt) {
                     '../public/js/**/*.js'
                 ],
                 tasks: ['uglify', 'less', 'preprocess:dev'],
-                options: {
-                    interrupt: true
-                }
+                options: { interrupt: true }
+            },
+            styles: {
+                files: ['../public/style.less'],
+                tasks: ['less', 'preprocess:dev'],
+                options: { interrupt: true }
             }
         }
     });

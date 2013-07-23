@@ -11,11 +11,15 @@ angular.module('logarithmic').service('routing', function($rootScope, $location)
                 };
 
                 console.log($location);
-                $rootScope.modal = modal
-                    ? {
-                    template: modal + '.html',
-                    title: 'wuuut'
-                } : { template: undefined };
+
+                $rootScope.modal = $rootScope.modal || {};
+
+                if (modal) {
+                    $rootScope.modal.template = modal + '.html';
+                    $rootScope.modal.title = 'wuuutable';
+                }
+
+                $rootScope.modal.visible = modal;
             });
         }
     };

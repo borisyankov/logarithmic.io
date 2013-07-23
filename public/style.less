@@ -236,17 +236,23 @@ footer {
 /* fade */
 
 .fade-hide, .fade-show {
-    transition: all linear 0.3s;
+    transition: all ease 0.2s;
 }
 
 .fade-show.fade-show-active,
 .fade-hide {
     opacity: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform: scale(1);
 }
 
 .fade-hide.fade-hide-active,
 .fade-show {
     opacity: 0;
+    -webkit-transform: scale(2);
+    -moz-transform: scale(2);
+    transform: scale(2);
 }
 
 /* shake */
