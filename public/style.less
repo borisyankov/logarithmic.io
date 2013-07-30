@@ -97,19 +97,6 @@ a:hover {
     #accented-element;
 }
 
-.overlay {
-    opacity: 1;
-    visibility: visible;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0px;
-    left: 0px;
-    z-index: 1000;
-    transition: all 0.3s;
-    background: rgba(0, 0, 0, 0.5);
-}
-
 .visible {
     visibility: visible;
 }
@@ -175,15 +162,37 @@ footer {
 
 /* Modal ************************************************/
 
-.modal {
-    background-color: @bg-light;
-    border-bottom: 5px solid @accent;
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
 
+    background: rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.modal3:before, .zup {
+ /*   content: '';*/
+    display: inline-block;
+
+    background-color: red;
+    width: 20px;
+    height: 100px;
+    vertical-align: middle;
+    margin-right: -0.25em;
+}
+
+.modal {
     width: 480px;
     max-width: 100%;
-    margin: 200px auto;
-
+    display: inline-block;
+    vertical-align: middle;
     z-index: 1001;
+    text-align: left;
+
+    background-color: @bg-light;
+    border-bottom: 5px solid @accent;
 }
 
 .modal-title {
@@ -422,14 +431,6 @@ input[type="checkbox"] + label:before {
     font-size: 17px;
 }
 
-input[type="radio"] + label:before {
-    content: "\e003"; /* circle-blank */
-}
-
-input[type="radio"]:checked + label:before {
-    content: "\e004"; /* circle */
-}
-
 input[type="checkbox"] + label:before {
     content: "\e002"; /* check-empty */
 }
@@ -444,7 +445,7 @@ input[type="checkbox"]:checked + label:before {
 
 .icon-progress:before {
     font-family: Icons;
-    content: "\e000"; /* progress */
+    content: "\e003"; /* progress */
 }
 
 .error-wrapper {
