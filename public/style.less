@@ -14,6 +14,7 @@
 }
 
 @accent: #52cccc;
+@accent-light: #45e5e5;
 @accent-dark: #36b3b3;
 @bg-dark: #363f44;
 @text-normal: #555;
@@ -259,9 +260,9 @@ footer {
 .fade-hide.fade-hide-active,
 .fade-show {
     opacity: 0;
-    -webkit-transform: scale(2);
-    -moz-transform: scale(2);
-    transform: scale(2);
+    -webkit-transform: scale(1.25);
+    -moz-transform: scale(1.25);
+    transform: scale(1.25);
 }
 
 /* shake */
@@ -392,6 +393,7 @@ button, input[type=submit] {
     padding: 0 1.5em;
     height: 2em;
     cursor: pointer;
+    box-shadow: 0 2px 0 0 @accent-dark;
 }
 
 button.default, input[type=submit] {
@@ -403,7 +405,7 @@ button:hover {
 }
 
 button.default:hover {
-    background-color: @accent-dark;
+    background-color: @accent-light;
 }
 
 button {
@@ -413,10 +415,6 @@ button {
 
 button:disabled, input[type=submit]:disabled {
     background-color: #777;
-}
-
-button:hover, input[type=submit]:hover {
-    // todo
 }
 
 input[type="radio"],

@@ -1,4 +1,4 @@
-angular.module('logarithmic').directive('buttonSubmit', function($q, $animator) {
+angular.module('logarithmic').directive('buttonSubmit', function($q, $animate) {
     return {
         restrict: 'E',
         replace: true,
@@ -10,7 +10,7 @@ angular.module('logarithmic').directive('buttonSubmit', function($q, $animator) 
             scope.click = function() {
 
                 var form = scope.$parent.form,
-                    animator = $animator(scope, attrs);
+                    animator = $animate(scope, attrs);
 
                 form.$validation = true;
                 console.log('yo');

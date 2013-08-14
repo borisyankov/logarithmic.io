@@ -18,6 +18,5 @@ angular.module('logarithmic').factory('api', function($http, $q) {
         return post('subscribe', { email: email });
     };
 
-
     return api;
 });
